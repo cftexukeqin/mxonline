@@ -11,6 +11,14 @@ class BaseSetting(object):
 # 将基本配置管理与view绑定
 xadmin.site.register(views.BaseAdminView,BaseSetting)
 
+# 全局配置
+class GlobalSetting(object):
+    site_title = "优课网后台管理"
+    site_footer = 'DX.Ssssss'
+    menu_style = 'accordion'
+# 绑定
+xadmin.site.register(views.CommAdminView,GlobalSetting)
+
 # xadmin中这里是继承object,不是继承admin
 class EmailVerifyRecordAdmin(object):
     # 显示的列
