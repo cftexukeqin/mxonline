@@ -44,7 +44,11 @@ INSTALLED_APPS = [
     'apps.organization',
     # xadmin配置
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    # 验证码配置
+    'captcha',
+    # 分页功能
+    'pure_pagination',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -142,3 +147,20 @@ AUTH_USER_MODEL = 'users.UserProfile'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
+
+# 邮箱登录功能配置
+AUTHENTICATION_BACKENDS = (
+    'apps.users.views.CustomBackend',
+)
+
+# 邮箱配置
+EMAIL_HOST = "smtp.qq.com"  # SMTP服务器主机
+EMAIL_PORT = 587             # 端口
+EMAIL_HOST_USER = "1527507926@qq.com"       # 邮箱地址
+EMAIL_HOST_PASSWORD = "zaczojaxmedgbaeh"    # 密码
+EMAIL_USE_TLS= True
+EMAIL_FROM = "1527507926@qq.com"            # 邮箱地址
+
+# 上传文件路径
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')

@@ -14,12 +14,22 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 # from django.contrib import admin
-from django.urls import path,include
+from django.urls import path,include,re_path
 import xadmin
 from django.views.generic import TemplateView
 
+from django.views.static import serve
+from mxonline.settings import MEDIA_ROOT
+
+
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
-    path('',TemplateView.as_view(template_name='index.html'),name='index'),
-    path('user/',include('apps.users.urls'))
+    path('', TemplateView.as_view(template_name='auth/index.html'), name='index'),
+    # 用户相关路由
+    path('user/',include('apps.users.urls')),
+    path('captcha/',include('captcha.urls')),
+    path('org/',include('apps.organization.urls',namespace='org')),
+    # 处理图片显示的url
+    re_path(r'^media/(?P<path>.*)',serve,{'document_root':MEDIA_ROOT})
+
 ]

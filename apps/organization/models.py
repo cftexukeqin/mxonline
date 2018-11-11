@@ -14,14 +14,22 @@ class CityDict(models.Model):
 
 # 课程机构基本信息
 class CourseOrg(models.Model):
+    ORG_CHOICES = (
+        ('pxjg','培训机构'),
+        ('gx','高校'),
+        ('gr','个人'),
+    )
     name = models.CharField('机构名称',max_length=50)
     desc = models.TextField('机构描述')
     click_nums = models.IntegerField('点击数',default=0)
     fav_nums = models.IntegerField('收藏数',default=0)
-    image = models.ImageField('封面图',upload_to='org/%Y%m',max_length=100)
+    image = models.ImageField('封面图',upload_to='org/%Y/%m',max_length=100)
+    students = models.IntegerField('学习人数',default=0)
+    course_nums = models.IntegerField('课程数',default=0)
     address = models.CharField('机构地址',max_length=150,)
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
     add_time = models.DateTimeField(default=datetime.now)
+    category = models.CharField(choices=ORG_CHOICES,max_length=20,verbose_name='机构类别',default='pxjg')
 
     class Meta:
         verbose_name = '课程机构'
