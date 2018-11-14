@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 
-class HttpCode(object):
+class HttpCode:
     ok = 200
     noauth = 401
     params_error = 400
@@ -13,8 +13,8 @@ def result(code=HttpCode.ok,message="",data=None,kwargs=None):
         json_dict.update(kwargs)
     return JsonResponse(json_dict)
 
-def ok():
-    return result()
+def ok(message=""):
+    return result(message=message)
 
 def noauth(message='没有权限'):
     return result(code=HttpCode.noauth,message=message)

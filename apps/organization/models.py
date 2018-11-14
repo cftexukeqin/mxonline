@@ -34,6 +34,8 @@ class CourseOrg(models.Model):
     class Meta:
         verbose_name = '课程机构'
         verbose_name_plural = verbose_name
+    def __str__(self):
+        return self.name
 
 class Teacher(models.Model):
     org = models.ForeignKey(CourseOrg,verbose_name='所属机构',on_delete=models.CASCADE)
@@ -45,6 +47,8 @@ class Teacher(models.Model):
     click_nums = models.IntegerField('点击数',default=0)
     fav_nums = models.IntegerField('收藏数',default=0)
     add_time = models.DateTimeField(default=datetime.now)
+
+    avatar = models.ImageField(upload_to='teacher/%Y/%m',default="",verbose_name="头像",max_length=100)
 
     class Meta:
         verbose_name = '教师'

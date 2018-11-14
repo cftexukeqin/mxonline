@@ -1,14 +1,31 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.views.generic import View
+from django.http import HttpResponse
 
 from .forms import LoginForm,RegistForm,ForgetForm,ResetPasswordForm
+from apps.utils import restful
 
 # 邮箱验证相关
 from django.contrib.auth.backends import ModelBackend
 from .models import UserProfile,EmailVerifyRecord
 from django.db.models import Q
 from ..utils.email_send import send_regist_email
+
+#极验
+from ..utils.geetest_sdk.geetest import GeetestLib
+# config
+pc_geetest_id = "b45aeae15e0e01da9eee11e846a7c9c7"
+pc_geetest_key = "dbaae76fd8cf385110dc80a18398600a"
+def pcgetcaptcha(request):
+    user_id = 'test'
+    gt = GeetestLib(pc_geetest_id, pc_geetest_key)
+    status = gt.pre_process(user_id)
+    request.session[gt.GT_STATUS_SESSION_KEY] = status
+    request.session["user_id"] = user_id
+    response_str = gt.get_response_str()
+    return HttpResponse(response_str)
+
 # Create your views here.
 #
 # def user_login(request):
@@ -44,17 +61,20 @@ class LoginView(View):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-
+            print("username:",username)
+            print("password:",password)
             user = authenticate(request,username=username,password=password)
             if user:
                 if user.is_active:
                     login(request, user)
-                    return render(request, "auth/index.html")
+                    return restful.ok()
                 else:
-                    return render(request,'auth/login.html',{'msg':"该用户暂未激活,请前往注册邮箱激活"})
+                    print("user")
+                    return restful.params_error('该用户暂未激活,请前往注册邮箱激活')
             else:
-                return render(request, 'auth/login.html', {"msg": '用户名或者密码错我', 'login_form':form})
+                return restful.params_error('用户名或密码错误')
         else:
+            print(form.errors)
             return render(request, 'auth/login.html', {'login_form':form})
 
 
@@ -84,10 +104,10 @@ class RegistView(View):
             user.save()
             # 此处是以邮箱注册,用户名就是邮箱
             send_regist_email(username,'register')
-            return render(request,'auth/login.html')
+            return render(request,'auth/login.html',{'msg':'注册成功,请前往邮箱激活!'})
         else:
             print(regist_form.errors)
-            return render(request,'auth/register.html',{'regist_form':regist_form})
+            return render(request,'auth/register.html',{'regist_form':regist_form,'msg':regist_form.errors})
 
 # 激活类试图
 class ActiveView(View):

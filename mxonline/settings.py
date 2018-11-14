@@ -47,8 +47,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     # 验证码配置
     'captcha',
-    # 分页功能
-    'pure_pagination',
+    #分页功能
+    'pure_pagination'
 ]
 
 MIDDLEWARE = [
