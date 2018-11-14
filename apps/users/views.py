@@ -104,7 +104,7 @@ class RegistView(View):
             user.save()
             # 此处是以邮箱注册,用户名就是邮箱
             send_regist_email(username,'register')
-            return render(request,'auth/login.html',{'msg':'注册成功,请前往邮箱激活!'})
+            return render(request, 'auth/login.html', {'msg': '注册成功,请前往邮箱激活!'})
         else:
             print(regist_form.errors)
             return render(request,'auth/register.html',{'regist_form':regist_form,'msg':regist_form.errors})
@@ -122,7 +122,7 @@ class ActiveView(View):
         else:
             return render(request,'auth/active_fail.html')
 
-        return render(request,'auth/login.html')
+        return render(request, 'auth/login.html')
 
 # 忘记密码
 class ForgetView(View):
@@ -151,7 +151,7 @@ class ResetPasswordView(View):
                 email = record.email
                 return render(request,'auth/password_reset.html',{'email':email})
         else:
-            return render(request,'auth/login.html')
+            return render(request, 'auth/login.html')
 
 # 参数冲突,重新定义修改密码视图
 class ModifyPwdView(View):
@@ -169,7 +169,7 @@ class ModifyPwdView(View):
             user.set_password(pwd2)
             user.save()
 
-            return render(request,'auth/login.html',{'msg':'密码修改成功!'})
+            return render(request, 'auth/login.html', {'msg': '密码修改成功!'})
         else:
             email = request.POST.get('email')
             print(modify_form.errors)

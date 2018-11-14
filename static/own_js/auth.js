@@ -63,7 +63,8 @@ Auth.prototype.listenLogindBtn = function(){
 
 Auth.prototype.run = function () {
     this.listenLogindBtn();
-    this.listenRegistBtn();
+    this.listenLogindBtn();
+    // this.listenRegistBtn();
 };
 
 $(function () {

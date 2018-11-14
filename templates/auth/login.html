@@ -4,31 +4,70 @@
 {% block head %}
     <script src="{% static 'own_js/auth.js' %}"></script>
     <script src="{% static 'own_js/gt.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/login_captcha.css' %}">
 {% endblock %}
 {% block content %}
-<div class="fl form-box">
-                <h2>帐号登录</h2>
-{#                    {% csrf_token %}#}
-                    <div class="form-group marb20 ">
-                        <label>用&nbsp;户&nbsp;名</label>
-                        <input name="username" id="account_l" type="text" placeholder="手机号/邮箱" />
-                    </div>
-                    <div class="form-group marb8 ">
-                        <label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
-                        <input name="password" id="password_l" type="password" placeholder="请输入您的密码" />
-                    </div>
+    <div class="fl form-box">
+        <h2>帐号登录</h2>
+        {#                    {% csrf_token %}#}
+        <div class="form-group marb20 ">
+            <label>用&nbsp;户&nbsp;名</label>
+            <input name="username" id="username1" type="text" placeholder="手机号/邮箱"/>
+        </div>
+        <div class="form-group marb8 ">
+            <label>密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+            <input name="password" id="password1" type="password" placeholder="请输入您的密码"/>
+        </div>
 
-{#                    <div class="form-group">#}
-                        {# 极验验证 #}
-{#                        <div id="embed-captcha"></div>#}
-{#                        <p id="wait" class="show">正在加载验证码......</p>#}
-{#                        <p id="notice" class="hide">请先拖动验证码到相应位置</p>#}
-{#                        <input type="submit" name="" value="登录" class="input_submit" id="embed-submit">#}
-{#                    </div>#}
-                     <div class="auto-box marb38">
-                        <a class="fr" href="{% url 'auth:forget' %}">忘记密码？</a>
-                     </div>
-                     <input class="btn btn-green" id="login-btn" type="submit" value="立即登录 > " />
-                <p class="form-p">没有慕学在线网帐号？<a href="{% url 'auth:regist' %}">[立即注册]</a></p>
-            </div>
+        <div class="form-group">
+{#            极验验证#}
+            <div id="embed-captcha"></div>
+            <p id="wait" class="show">正在加载验证码......</p>
+            <p id="notice" class="hide">请先拖动验证码到相应位置</p>
+{#            <input type="submit" name="" value="登录" class="input_submit" id="embed-submit">#}
+        </div>
+        <div class="auto-box marb38">
+            <a class="fr" href="{% url 'auth:forget' %}">忘记密码？</a>
+        </div>
+        <input class="btn btn-green" id="login-btn" type="submit" value="立即登录 > "/>
+        <p class="form-p">没有慕学在线网帐号？<a href="{% url 'auth:regist' %}">[立即注册]</a></p>
+    </div>
+    <script>
+        var handlerEmbed = function (captchaObj) {
+            $("#login-btn").click(function (e) {
+                var validate = captchaObj.getValidate();
+                if (!validate) {
+                    $("#notice")[0].className = "show";
+                    setTimeout(function () {
+                        $("#notice")[0].className = "hide";
+                    }, 1000);
+                    e.preventDefault();
+                }
+            });
+            // 将验证码加到id为captcha的元素里，同时会有三个input的值：geetest_challenge, geetest_validate, geetest_seccode
+            captchaObj.appendTo("#embed-captcha");
+            captchaObj.onReady(function () {
+                $("#wait")[0].className = "hide";
+            });
+            // 更多接口参考：http://www.geetest.com/install/sections/idx-client-sdk.html
+        };
+        $.ajax({
+            // 获取id，challenge，success（是否启用failback）
+            url: "/user/pc-geetest/login/?t=" + (new Date()).getTime(), // 加随机数防止缓存
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+                // 使用initGeetest接口
+                // 参数1：配置参数
+                // 参数2：回调，回调的第一个参数验证码对象，之后可以使用它做appendTo之类的事件
+                initGeetest({
+                    gt: data.gt,
+                    challenge: data.challenge,
+                    product: "embed", // 产品形式，包括：float，embed，popup。注意只对PC版验证码有效
+                    offline: !data.success // 表示用户后台检测极验服务器是否宕机，一般不需要关注
+                    // 更多配置参数请参见：http://www.geetest.com/install/sections/idx-client-sdk.html#config
+                }, handlerEmbed);
+            }
+        });
+    </script>
 {% endblock %}

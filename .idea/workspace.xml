@@ -2,41 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6419efb7-7fc3-4e2a-935f-3f8e29cc0805" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/course/migrations/0002_course_course_org.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/organization/migrations/0004_teacher_avatar.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/geetest_sdk/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/geetest_sdk/geetest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/own_js/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/own_js/gt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/own_js/sweetalert.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/auth_base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base/org_detail_base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/organization/org-detail-course.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/organization/org-detail-desc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/organization/org-detail-homepage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/organization/org-detail-teachers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/login_captcha.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/mxonline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mxonline.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/course/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/course/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/organization/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/organization/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/utils/restful.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/restful.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mxonline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mxonline/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/own_js/xtalert.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/own_js/xfzalert.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/forgetpwd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/forgetpwd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/own_js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/own_js/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/organization/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base/org_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/organization/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/organization/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,37 +78,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/organization/views.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/organization/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="78" column="92" selection-start-line="78" selection-start-column="92" selection-end-line="78" selection-end-column="92" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-                <marker date="1542108886239" expanded="true" signature="2965:3251" ph="..." />
-                <marker date="1542108886239" expanded="true" signature="4096:5728" ph="..." />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/operation/models.py">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/auth/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2124">
+              <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/organization/urls.py">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="61" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+            <state relative-caret-position="342">
+              <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_captcha.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/css/login_captcha.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/own_js/auth.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1018">
+              <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -140,41 +135,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/organization/index.html">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mxonline/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1938">
-              <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+            <state relative-caret-position="346">
+              <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/base/org_base.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="85" column="57" selection-start-line="85" selection-start-column="57" selection-end-line="85" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mxonline/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="57" column="48" selection-start-line="57" selection-start-column="48" selection-end-line="57" selection-end-column="48" />
+            <state relative-caret-position="-731">
+              <caret line="99" column="36" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="36" />
               <folding>
-                <element signature="e#309#318#0" expanded="true" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/utils/restful.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/organization/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state relative-caret-position="450">
+              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -186,6 +172,7 @@
       <list>
         <option value="Python Script" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -228,11 +215,9 @@
         <option value="$PROJECT_DIR$/templates/auth/send_success.html" />
         <option value="$PROJECT_DIR$/apps/users/forms.py" />
         <option value="$PROJECT_DIR$/apps/utils/email_send.py" />
-        <option value="$PROJECT_DIR$/apps/users/urls.py" />
         <option value="$PROJECT_DIR$/templates/auth/password_reset.html" />
         <option value="$PROJECT_DIR$/templates/auth/base/base.html" />
         <option value="$PROJECT_DIR$/templates/organization/base.html" />
-        <option value="$PROJECT_DIR$/mxonline/urls.py" />
         <option value="$PROJECT_DIR$/apps/forms.py" />
         <option value="$PROJECT_DIR$/apps/organization/forms.py" />
         <option value="$PROJECT_DIR$/static/own_js/userask.js" />
@@ -243,9 +228,6 @@
         <option value="$PROJECT_DIR$/apps/course/models.py" />
         <option value="$PROJECT_DIR$/static/css/style.css" />
         <option value="$PROJECT_DIR$/apps/organization/models.py" />
-        <option value="$PROJECT_DIR$/apps/users/views.py" />
-        <option value="$PROJECT_DIR$/static/own_js/auth.js" />
-        <option value="$PROJECT_DIR$/templates/auth/login.html" />
         <option value="$PROJECT_DIR$/templates/organization/index.html" />
         <option value="$PROJECT_DIR$/apps/users/models.py" />
         <option value="$PROJECT_DIR$/apps/organization/urls.py" />
@@ -259,6 +241,12 @@
         <option value="$PROJECT_DIR$/templates/auth/index.html" />
         <option value="$PROJECT_DIR$/templates/base/org_detail_base.html" />
         <option value="$PROJECT_DIR$/templates/base/org_base.html" />
+        <option value="$PROJECT_DIR$/static/own_js/auth.js" />
+        <option value="$PROJECT_DIR$/static/css/login_captcha.css" />
+        <option value="$PROJECT_DIR$/mxonline/urls.py" />
+        <option value="$PROJECT_DIR$/apps/users/urls.py" />
+        <option value="$PROJECT_DIR$/apps/users/views.py" />
+        <option value="$PROJECT_DIR$/templates/auth/login.html" />
       </list>
     </option>
   </component>
@@ -269,10 +257,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3" />
-    <option name="y" value="50" />
-    <option name="width" value="1386" />
-    <option name="height" value="768" />
+    <option name="x" value="642" />
+    <option name="y" value="44" />
+    <option name="width" value="1753" />
+    <option name="height" value="1041" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -282,6 +270,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -303,19 +292,12 @@
               <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
               <item name="mxonline" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mxonline" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="organization" type="462c0819:PsiDirectoryNode" />
+              <item name="auth" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,25 +305,26 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/Django_pro/mxonline/apps/operation/adminx.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="F:/Chromedown/gt3-python-sdk-master/gt3-python-sdk-master/demo/django_demo" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Learn_Django\mxonline\static\own_js" />
-      <recent name="F:\Learn_Django\mxonline\templates\base" />
-      <recent name="F:\Django_pro\mxonline\static\own_js" />
-      <recent name="F:\Django_pro\mxonline\templates\organization" />
-      <recent name="F:\Django_pro\mxonline\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Django_pro\mxonline\apps\users" />
       <recent name="F:\Learn_Django\mxonline\apps\utils" />
       <recent name="F:\Learn_Django\mxonline\static\images" />
       <recent name="F:\Learn_Django\mxonline\templates\organization" />
       <recent name="F:\Learn_Django\mxonline\static\own_js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Django_pro\mxonline\static\own_js" />
+      <recent name="F:\Learn_Django\mxonline\static\own_js" />
+      <recent name="F:\Learn_Django\mxonline\templates\base" />
+      <recent name="F:\Django_pro\mxonline\templates\organization" />
+      <recent name="F:\Django_pro\mxonline\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -375,9 +358,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="mxonline" type="Python.DjangoServer" factoryName="Django server" singleton="true">
       <module name="mxonline" />
@@ -401,7 +381,6 @@
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
       <option name="customRunCommand" value="" />
-      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Django server.mxonline" />
@@ -427,57 +406,72 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="50" width="1386" height="768" extended-state="0" />
+    <frame x="642" y="44" width="1753" height="1041" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34662238" />
+      <window_info anchor="right" id="Mongo Explorer" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32890365" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16066155" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="manage.py@mxonline" order="9" weight="0.42857143" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32890365" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1591252" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.08201893" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="manage.py@mxonline" order="9" visible="true" weight="0.42902207" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32973805" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.5331279" />
-      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32973805" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32973805" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.08201893" />
+      <window_info anchor="bottom" id="Python Console" order="13" weight="0.32973805" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.5331279" />
       <window_info anchor="right" id="Mongo Explorer" order="5" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.098050795" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24031007" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info active="true" anchor="bottom" id="manage.py@mxonline" order="11" visible="true" weight="0.31007752" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32890365" />
-      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.098050795" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.24031007" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="manage.py@mxonline" order="11" visible="true" weight="0.31007752" />
       <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="right" id="SciView" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.32890365" />
+      <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,15 +481,27 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/own_js/message.js" />
-    <entry file="file://$PROJECT_DIR$/media/org/2018/11/34-1309210944490_1vSTmMv.jpg" />
-    <entry file="file://$PROJECT_DIR$/media/org/2018/11/2248146p4nvsuj4ppn6qpp.jpg" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/36819384_1406606923374.jpg" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/34-1309210944490.jpg" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/2Q_fb8S2ej.JPG" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/2Q.JPG" />
-    <entry file="file://$PROJECT_DIR$/apps/organization/forms.py" />
-    <entry file="file://$PROJECT_DIR$/static/own_js/userask.js" />
+    <entry file="file://$PROJECT_DIR$/apps/organization/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/own_js/userask.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="20" selection-start-line="33" selection-start-column="20" selection-end-line="33" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/users/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -516,9 +522,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/own_js/xtalert.js" />
-    <entry file="file://$PROJECT_DIR$/static/own_js/sweetalert.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/own_js/xfzalert.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="156">
@@ -549,8 +552,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/auth/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="36" column="27" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        <state relative-caret-position="252">
+          <caret line="14" column="40" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
+          <folding>
+            <element signature="n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -579,9 +585,6 @@
         <state relative-caret-position="-2708" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/login.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/js/comment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153" />
@@ -591,23 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1496">
           <caret line="88" column="26" selection-start-line="88" selection-start-column="22" selection-end-line="88" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/own_js/gt.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/own_js/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
@@ -629,9 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -644,19 +627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/organization/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="24" column="12" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#440#446#0#HTML" expanded="true" />
-            <element signature="e#447#453#0#HTML" expanded="true" />
-          </folding>
+        <state relative-caret-position="450">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -666,7 +638,6 @@
           <caret line="56" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1542108627331" expanded="true" signature="1785:1789" ph="..." />
           </folding>
         </state>
       </provider>
@@ -732,8 +703,6 @@
           <caret line="78" column="92" selection-start-line="78" selection-start-column="92" selection-end-line="78" selection-end-column="92" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-            <marker date="1542108886239" expanded="true" signature="2965:3251" ph="..." />
-            <marker date="1542108886239" expanded="true" signature="4096:5728" ph="..." />
           </folding>
         </state>
       </provider>
@@ -747,8 +716,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/auth/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9243">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="2124">
+          <caret line="118" column="59" selection-start-line="118" selection-start-column="59" selection-end-line="118" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -774,8 +743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/organization/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1938">
-          <caret line="121" column="60" selection-start-line="121" selection-start-column="60" selection-end-line="121" selection-end-column="60" />
+        <state relative-caret-position="306">
+          <caret line="17" column="31" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -783,6 +752,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39">
           <caret line="85" column="57" selection-start-line="85" selection-start-column="57" selection-end-line="85" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/MyDownloads/gt3-python-sdk-master/gt3-python-sdk-master/sdk/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/sdk/gt.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/login_captcha.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mxonline/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="31" column="16" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="55" column="19" selection-end-line="72" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/own_js/auth.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1018">
+          <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="99" column="36" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
         </state>
       </provider>
     </entry>
