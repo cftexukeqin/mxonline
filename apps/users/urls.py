@@ -14,7 +14,8 @@ urlpatterns = [
     # 重置密码
     re_path(r'reset/(?P<active_code>.*)/',views.ResetPasswordView.as_view(),name='reset_pwd'),
     # 极验验证码
-    path('pc-geetest/login/', views.pcgetcaptcha, name='pcgetcaptcha')
+    path('pc-geetest/login/', views.pcgetcaptcha, name='pcgetcaptcha'),
+
 
 
 ]
