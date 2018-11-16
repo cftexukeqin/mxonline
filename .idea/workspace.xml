@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6419efb7-7fc3-4e2a-935f-3f8e29cc0805" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/login_captcha.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/mxonline.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mxonline.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/own_js/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/own_js/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auth/login.html" afterDir="false" />
-    </list>
+    <list default="true" id="6419efb7-7fc3-4e2a-935f-3f8e29cc0805" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,12 +87,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+            <state>
+              <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirments.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirments.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-216" />
           </provider>
         </entry>
       </file>
@@ -277,22 +275,6 @@
               <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
               <item name="mxonline" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mxonline" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mxonline" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mxonline" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mxonline" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="auth" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -405,7 +387,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="642" y="44" width="1753" height="1041" extended-state="0" />
+    <frame x="11" y="0" width="1753" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -413,10 +395,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34662238" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.34662238" />
       <window_info anchor="right" id="Mongo Explorer" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32890365" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16066155" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3280255" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16066155" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="manage.py@mxonline" order="9" weight="0.42857143" />
       <window_info anchor="right" id="Database" order="3" />
@@ -480,7 +462,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/media/org/2018/11/36819384_1406606923374.jpg" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/34-1309210944490.jpg" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/2Q_fb8S2ej.JPG" />
     <entry file="file://$PROJECT_DIR$/media/org/2018/11/2Q.JPG" />
@@ -814,9 +795,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/auth/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="40" column="44" lean-forward="true" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state>
+          <caret line="24" column="32" lean-forward="true" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirments.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-216" />
       </provider>
     </entry>
   </component>
