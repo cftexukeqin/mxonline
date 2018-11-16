@@ -41,11 +41,28 @@ class CourseDetailView(View):
         course.save()
         tag = course.tag
         related_courses = None
+        fav_course = False
+        fav_org = False
+        # 判断课程是否收藏
+        if UserFavorite.objects.filter(user=request.user,fav_id=course.id,fav_type=1):
+            fav_course = True
+        # 判断机构是否收藏
+        if UserFavorite.objects.filter(user=request.user,fav_id=course.course_org.id,fav_type=2):
+            fav_org = True
         if tag:
             # 相关课程
             related_courses = Course.objects.filter(tag=tag).all()[1:3]
         context = {
             'course':course,
-            'related_courses':related_courses
+            'related_courses':related_courses,
+            'fav_course':fav_course,
+            'fav_org':fav_org
         }
         return render(request,'course/course-detail.html',context=context)
+class CourseLessonView(View):
+    def get(self,request):
+        return render(request,'course/course-video.html')
+
+class CourseCommentView(View):
+    def get(self,request):
+        return render(request,'course/course-comment.html')

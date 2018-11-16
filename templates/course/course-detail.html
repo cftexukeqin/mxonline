@@ -1,6 +1,6 @@
 {% extends 'base/course_base.html' %}
 {% block custom_bread_ %}
-课程详情
+公开课>课程详情
 {% endblock %}
 {% block head %}
 
@@ -42,9 +42,9 @@
                             </ul>
                             <div class="btns">
                                 <div class="btn colectgroupbtn" id="jsLeftBtn" data-fav-id="{{ course.id }}" data-fav-type="1">
-                                    收藏
+                                    {% if fav_course %}已收藏{% else %}收藏{% endif %}
                                 </div>
-                                <div class="buy btn"><a style="color: white" href="course-video.html">开始学习</a></div>
+                                <div class="buy btn"><a style="color: white" href="{% url 'course:lesson' %}">开始学习</a></div>
                             </div>
                         </div>
                         <div class="group-share-box">
@@ -78,7 +78,7 @@
                         </a>
                         <div class="btn  notlogin
 					     " data-favid="14" id="jsRightBtn">
-                            已收藏
+                            {% if fav_org %}已收藏{% else %}收藏{% endif %}
                         </div>
                         <div class="clear">
                             <ul>
@@ -160,7 +160,7 @@
                             <dl>
                             <dt>
                                 <a target="_blank" href="">
-                                    <img width="240" height="220" class="scrollLoading"
+                                    <img width="240" height="120" class="scrollLoading"
                                          src="{{ MEDIA_URL }}{{ related_course.thumbnail }}"/>
                                 </a>
                             </dt>
