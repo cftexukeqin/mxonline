@@ -76,10 +76,10 @@ class LoginView(View):
 
         if status:
             result = gt.success_validate(challenge,validate,seccode,user_id)
-            print('success result:',result)
+            # print('success result:',result)
         else:
             result = gt.failback_validate(challenge,validate,seccode)
-            print('fail result:',result)
+            # print('fail result:',result)
 
         if result == 1:
             # 验证码正确
