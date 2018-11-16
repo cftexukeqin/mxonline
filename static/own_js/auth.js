@@ -1,6 +1,10 @@
 function Auth() {
 
 }
+// geetest
+function Geetest(){
+
+}
 
 Auth.prototype.listenLogindBtn = function(){
     var regBtn = $('#login-btn');
@@ -59,12 +63,76 @@ Auth.prototype.listenLogindBtn = function(){
 //     })
 // };
 // 初始化验证码
+// Auth.prototype.listenGeetestLogin = function(){
+//     var usernameInput = $('#username1');
+//     var passwordInput = $('#password1');
+//     var handlerPopup = function (captchaObj) {
+//         captchaObj.onSuccess(function () {
+//             var validate = captchaObj.getValidate();
+//             var username = usernameInput.val();
+//             var password = passwordInput.val();
+//             xfzajax.post({
+//                 'url':'/user/login/',
+//                 'data':{
+//                     'username':username,
+//                     'password':password,
+//                     'geetest_challenge':validate.geetest_challenge,
+//                     'geetest_validate':validate.geetest_validate,
+//                     'geetest_second':validate.geetest_second,
+//                 },
+//                 'success':function (result) {
+//                     if (result['code'] === 200){
+//                         window.location.href = '/';
+//                     } else {
+//                         messageBox.showInfo(result['msg'])
+//                     }
+//                 },
+//                 'fail':function (err) {
+//                     messageBox.showError(err)
+//                 }
+//             })
+//         });
+//         $('#popup-submit').click(function () {
+//             captchaObj.show();
+//         });
+//         captchaObj.appendTo('#popup-captcha');
+//     };
+//     xfzajax.get({
+//         'url':'/user/pc-geetest/login/?t='+(new Date()).getTime(),
+//         'data':{},
+//         'success':function (result) {
+//             initGeetest({
+//                 gt:result.gt,
+//                 challenge:result.challenge,
+//                 product:'popup',
+//                 offline:!result.success
+//             },handlerPopup);
+//         }
+//     })
+// };
+// geetest 初始化
+// Geetest.prototype.Init = function(){
+//     console.log("success init");
+//     xfzajax.get({
+//         'url':'/user/pc-geetest/login/?t='+(new Date()).getTime(),
+//         'data':{},
+//         'success':function (result) {
+//             initGeetest({
+//                 gt:result.gt,
+//                 challenge:result.challenge,
+//                 product:'popup',
+//                 offline:!result.success
+//             },window.hp);
+//         }
+//     })
+// };
 
 
 Auth.prototype.run = function () {
-    this.listenLogindBtn();
-    this.listenLogindBtn();
+    // 无极验验证码版本
+    // this.listenLogindBtn();
     // this.listenRegistBtn();
+    // this.listenGeetestLogin();
 };
 
 $(function () {

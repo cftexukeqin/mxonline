@@ -11,10 +11,12 @@ from django.contrib.auth.backends import ModelBackend
 from .models import UserProfile,EmailVerifyRecord
 from django.db.models import Q
 from ..utils.email_send import send_regist_email
+import json
+from datetime import datetime
 
 #极验
 from ..utils.geetest_sdk.geetest import GeetestLib
-# config
+# config geetest 获取后台参数,初始化geetest
 pc_geetest_id = "b45aeae15e0e01da9eee11e846a7c9c7"
 pc_geetest_key = "dbaae76fd8cf385110dc80a18398600a"
 def pcgetcaptcha(request):
@@ -26,20 +28,6 @@ def pcgetcaptcha(request):
     response_str = gt.get_response_str()
     return HttpResponse(response_str)
 
-# Create your views here.
-#
-# def user_login(request):
-#     if request.method == "POST":
-#         username = request.POST.get('username', None)
-#         password = request.POST.get('password', None)
-#         user = authenticate(request, username=username, password=password)
-#         if user:
-#             login(request, user)
-#             return render(request, 'index.html')
-#         else:
-#             return render(request,'login.html',{"message":'用户名或者密码错误'})
-#     else:
-#         return render(request,'login.html')
 
 # 重写authenticate 方法,增加邮箱登录
 class CustomBackend(ModelBackend):
@@ -57,25 +45,53 @@ class LoginView(View):
     def get(self,request):
         return render(request, 'auth/login.html')
     def post(self,request):
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            print("username:",username)
-            print("password:",password)
+        # form = LoginForm(request.POST)
+        # if form.is_valid():
+        #     username = form.cleaned_data.get('username')
+        #     password = form.cleaned_data.get('password')
+        #     print("username:",username)
+        #     print("password:",password)
+        #     user = authenticate(request,username=username,password=password)
+        #     if user:
+        #         if user.is_active:
+        #             login(request, user)
+        #             return restful.ok()
+        #         else:
+        #             print("user")
+        #             return restful.params_error('该用户暂未激活,请前往注册邮箱激活')
+        #     else:
+        #         return restful.params_error('用户名或密码错误')
+        # else:
+        #     print(form.errors)
+        #     return render(request, 'auth/login.html', {'login_form':form})
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        # 获取极验,滑动验证码相关参数
+        gt = GeetestLib(pc_geetest_id,pc_geetest_key)
+        challenge = request.POST.get(gt.FN_CHALLENGE,'')
+        validate = request.POST.get(gt.FN_VALIDATE,'')
+        seccode = request.POST.get(gt.FN_SECCODE,'')
+        status = request.session[gt.GT_STATUS_SESSION_KEY]
+        user_id = request.session['user_id']
+
+        if status:
+            result = gt.success_validate(challenge,validate,seccode,user_id)
+            # print('success result:',result)
+        else:
+            result = gt.failback_validate(challenge,validate,seccode)
+            # print('fail result:',result)
+
+        if result == 1:
+            # 验证码正确
+            # 利用authenticate()做用户名和密码的校验
             user = authenticate(request,username=username,password=password)
             if user:
-                if user.is_active:
-                    login(request, user)
-                    return restful.ok()
-                else:
-                    print("user")
-                    return restful.params_error('该用户暂未激活,请前往注册邮箱激活')
+                login(request,user)
+                return restful.ok()
             else:
-                return restful.params_error('用户名或密码错误')
+                return restful.params_error(message='用户名或密码错误')
         else:
-            print(form.errors)
-            return render(request, 'auth/login.html', {'login_form':form})
+            return restful.noauth(message='请点击验证码进行验证!')
 
 
 # 注册类视图

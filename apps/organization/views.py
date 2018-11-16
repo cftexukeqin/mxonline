@@ -55,7 +55,7 @@ class IndexView(View):
             'hot_orgs':hot_orgs,
             'sort':sort
         }
-        return render(request,'organization/index.html',context=context)
+        return render(request, 'organization/org_index.html', context=context)
 
 class UserAskView(View):
     def post(self,request):
