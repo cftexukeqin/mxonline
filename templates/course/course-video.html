@@ -20,21 +20,21 @@
             <div style="height: 15px" class="path">
             </div>
             <div class="hd">
-                <h2 class="l">django与vuejs实战项目2</h2>
+                <h2 class="l">{{ course.name }}</h2>
             </div>
             <div class="statics clearfix">
                 <div class="static-item ">
-                    <span class="meta-value"><strong>高级</strong></span>
+                    <span class="meta-value"><strong>{{ course.get_degree_display }}</strong></span>
                     <span class="meta">难度</span>
                     <em></em>
                 </div>
                 <div class="static-item static-time">
-                    <span class="meta-value">0分钟</span>
+                    <span class="meta-value">{{ course.learn_times }}分钟</span>
                     <span class="meta">时长</span>
                     <em></em>
                 </div>
                 <div class="static-item">
-                    <span class="meta-value"><strong>13</strong></span>
+                    <span class="meta-value"><strong>{{ course.students }}</strong></span>
                     <span class="meta">学习人数</span>
                     <em></em>
                 </div>
@@ -50,7 +50,7 @@
                         <ul class="course-menu clearfix">
                             <li><a class="ui-tabs-active active" id="learnOn"
                                    href="course-video.html"><span>章节</span></a></li>
-                            <li><a id="commentOn" class="" href="{% url 'course:comment' %}"><span>评论</span></a></li>
+                            <li><a id="commentOn" class="" href="{% url 'course:comment' course.id %}"><span>评论</span></a></li>
                         </ul>
                     </div>
                     <div id="notice" class="clearfix">
@@ -209,13 +209,13 @@
                         <div class="box mb40">
                             <h4>资料下载</h4>
                             <ul class="downlist">
-
-                                <li>
-                                    <span><i class="aui-iconfont aui-icon-file"></i>&nbsp;&nbsp;前端页面</span>
-                                    <a href="/static/course/resource/2016/11/media.zip" class="downcode"
-                                       target="_blank" download="" data-id="274" title="">下载</a>
-                                </li>
-
+                                {% for resource in course.courseresource_set.all %}
+                                    <li>
+                                        <span><i class="aui-iconfont aui-icon-file"></i>&nbsp;&nbsp;{{ resource }}</span>
+                                        <a href="{{ MEDIA_URL }}{{ resource.download }}" class="downcode"
+                                           target="_blank" download="" data-id="274" title="">下载</a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <div class="box mb40">
@@ -225,18 +225,18 @@
                                     <img src='/static/media/teacher/2016/11/aobama_CXWwMef.png' width='80' height='80'/>
                                 </a>
                                 <span class="tit">
-          <a href="/u/315464/courses?sort=publish" target="_blank">bobby</a>
+          <a href="/u/315464/courses?sort=publish" target="_blank">{{ course.teacher.name }}</a>
         </span>
-                                <span class="job">xxx</span>
+                                <span class="job">{{ course.teacher.work_position }}</span>
                             </div>
                             <div class="course-info-tip">
                                 <dl class="first">
                                     <dt>课程须知</dt>
-                                    <dd class="autowrap">python基础你需要有</dd>
+                                    <dd class="autowrap">{{ course.notice }}</dd>
                                 </dl>
                                 <dl>
                                     <dt>老师告诉你能学到什么？</dt>
-                                    <dd class="autowrap">django的进阶开发</dd>
+                                    <dd class="autowrap">{{ course.teacher_tell }}</dd>
                                 </dl>
                             </div>
                         </div>
@@ -251,43 +251,15 @@
                                      style="display: block">
                                     <!-- img 200 x 112 -->
                                     <ul class="other-list">
-
-                                        <li class="curr">
+                                        {% for course in related_courses %}
+                                            <li class="curr">
                                             <a href="course-detail.html" target="_blank">
-                                                <img src="/static/media/courses/2016/11/540e57300001d6d906000338-240-135_n0L8vbw.jpg"
+                                                <img src="{{ MEDIA_URL }}{{ course.thumbnail }}"
                                                      alt="django与vuejs实战项目2">
-                                                <span class="name autowrap">django与vuejs实战项目2</span>
+                                                <span class="name autowrap">{{ course.name }}</span>
                                             </a>
                                         </li>
-
-                                        <li class="curr">
-                                            <a href="course-detail.html" target="_blank">
-                                                <img src="/static/media/courses/2016/12/python面向对象.jpg" alt="python面向对象">
-                                                <span class="name autowrap">python面向对象</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="curr">
-                                            <a href="course-detail.html" target="_blank">
-                                                <img src="/static/media/courses/2016/12/python文件处理.jpg" alt="python文件处理">
-                                                <span class="name autowrap">python文件处理</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="curr">
-                                            <a href="course-detail.html" target="_blank">
-                                                <img src="/static/media/courses/2016/11/mysql.jpg" alt="django入门">
-                                                <span class="name autowrap">django入门</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="curr">
-                                            <a href="course-detail.html" target="_blank">
-                                                <img src="/static/media/courses/2016/12/mysql.jpg" alt="xadmin进阶开发">
-                                                <span class="name autowrap">xadmin进阶开发</span>
-                                            </a>
-                                        </li>
-
+                                        {% endfor %}
                                     </ul>
                                 </div>
                                 <div class="cp-tab-pannel js-comp-tab-pannel" data-pannel="plan">

@@ -1,5 +1,4 @@
 # organization/adminx.py
-
 import xadmin
 
 from .models import CityDict, CourseOrg, Teacher

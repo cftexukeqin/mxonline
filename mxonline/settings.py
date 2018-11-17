@@ -164,3 +164,9 @@ EMAIL_FROM = "1527507926@qq.com"            # 邮箱地址
 # 上传文件路径
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+# xadmin 源码安装
+import os
+import sys
+
+sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))

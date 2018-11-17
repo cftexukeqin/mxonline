@@ -1,4 +1,6 @@
 {% extends 'base/course_base.html' %}
+{% load static %}
+{% load  time_filter %}
 {% block head %}
     <link rel="stylesheet" type="text/css" href="/static/css/muke/course/learn-less.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/muke/course/course-comment.css"/>
@@ -6,6 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/static/css/muke/common-less.css">
     <link rel="stylesheet" type="text/css" href="/static/css/muke/course/common-less.css">
     <link rel="stylesheet" type="text/css" href="/static/css/mooc.css"/>
+    <script src="{% static 'own_js/xfzajax.js' %}"></script>
+    <script src="{% static 'own_js/message.js' %}"></script>
+    <script src="{% static 'own_js/course.js' %}"></script>
 {% endblock %}
 {% block custom_bread_ %}
     课程评论
@@ -47,23 +52,43 @@
                     <div class="content">
                         <div class="mod-tab-menu">
                             <ul class="course-menu clearfix">
-                                <li><a class="ui-tabs-active " id="learnOn" href="{% url 'course:lesson' %}"><span>章节</span></a>
+                                <li><a class="ui-tabs-active " id="learnOn" href="{% url 'course:info' course.id %}"><span>章节</span></a>
                                 </li>
-                                <li><a id="commentOn" class="active" href="#"><span>评论</span></a></li>
+                                <li ><a id="commentOn" class="active" href="#"><span>评论</span></a></li>
                             </ul>
                         </div>
 
                         <!--发布评论-->
-                        <div id="js-pub-container" class="issques clearfix js-form">
+                        <div data-id="{{ course.id }}" id="js-pub-container" class="issques clearfix js-form">
                             <div class="wgt-ipt-wrap pub-editor-wrap " id="js-pl-input-fake">
                                 <textarea id="js-pl-textarea" class="" placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！"></textarea>
                             </div>
-                            <input type="button" id="js-pl-submit" class="pub-btn" data-cid="452" value="发表评论">
+                            <input type="button" id="js-pl-submit" class="pub-btn pull-right" data-cid="452" value="发表评论">
                             <p class="global-errortip js-global-error"></p>
                         </div>
                         <div id="course_note">
                             <ul class="mod-post" id="comment-list">
-
+                                
+                                {% for comment in course.coursecomments_set.all %}
+                                <li class="post-row">
+                                    <div class="media">
+                                    <span target="_blank"><img src='/static/media/image/2016/12/default_big_14.png'
+                                                               width='40' height='40'/></span>
+                                    </div>
+                                    <div class="bd">
+                                        <div class="tit">
+                                            <span target="_blank">bobby</span>
+                                        </div>
+                                        <p class="cnt">
+                                            {{ comment.comments }}</p>
+                                        <div class="footer clearfix">
+                                            <span title="创建时间" class="l timeago">{{ comment.add_time|time_since }}</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                                
+                                
                                 <li class="post-row">
                                     <div class="media">
                                     <span target="_blank"><img src='/static/media/image/2016/12/default_big_14.png'
@@ -181,87 +206,7 @@
                                         </div>
                                     </div>
                                 </li>
-
-                                <li class="post-row">
-                                    <div class="media">
-                                    <span target="_blank"><img src="/static/media/image/2016/12/default_big_14.png"
-                                                               width='40' height='40'/></span>
-                                    </div>
-                                    <div class="bd">
-                                        <div class="tit">
-                                            <span target="_blank">bobby</span>
-                                        </div>
-                                        <p class="cnt">好</p>
-                                        <div class="footer clearfix">
-                                            <span title="创建时间" class="l timeago">时间：2016年12月8日 22:06</span>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="post-row">
-                                    <div class="media">
-                                    <span target="_blank"><img src="/static/media/image/2016/12/default_big_14.png"
-                                                               width='40' height='40'/></span>
-                                    </div>
-                                    <div class="bd">
-                                        <div class="tit">
-                                            <span target="_blank">bobby</span>
-                                        </div>
-                                        <p class="cnt">再来一次</p>
-                                        <div class="footer clearfix">
-                                            <span title="创建时间" class="l timeago">时间：2016年11月5日 23:18</span>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="post-row">
-                                    <div class="media">
-                                    <span target="_blank"><img src="/static/media/image/2016/12/default_big_14.png"
-                                                               width='40' height='40'/></span>
-                                    </div>
-                                    <div class="bd">
-                                        <div class="tit">
-                                            <span target="_blank">bobby</span>
-                                        </div>
-                                        <p class="cnt">good </p>
-                                        <div class="footer clearfix">
-                                            <span title="创建时间" class="l timeago">时间：2016年11月5日 23:18</span>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="post-row">
-                                    <div class="media">
-                                    <span target="_blank"><img src="/static/media/image/2016/12/default_big_14.png"
-                                                               width='40' height='40'/></span>
-                                    </div>
-                                    <div class="bd">
-                                        <div class="tit">
-                                            <span target="_blank">bobby</span>
-                                        </div>
-                                        <p class="cnt">讲的很不错</p>
-                                        <div class="footer clearfix">
-                                            <span title="创建时间" class="l timeago">时间：2016年11月5日 23:13</span>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="post-row">
-                                    <div class="media">
-                                    <span target="_blank"><img src="/static/media/image/2016/12/default_big_14.png"
-                                                               width='40' height='40'/></span>
-                                    </div>
-                                    <div class="bd">
-                                        <div class="tit">
-                                            <span target="_blank">bobby</span>
-                                        </div>
-                                        <p class="cnt">给问问</p>
-                                        <div class="footer clearfix">
-                                            <span title="创建时间" class="l timeago">时间：2016年11月5日 23:09</span>
-                                        </div>
-                                    </div>
-                                </li>
-
+                                
                             </ul>
                         </div>
 
