@@ -10,8 +10,10 @@ urlpatterns = [
     # 课程章节
     re_path(r'info/(?P<course_id>\d)/',views.CourseInfoView.as_view(),name='info'),
     # 课程评论
-    re_path(r'comment/(?P<course_id>\d)/',views.CourseCommentView.as_view(),name='comment'),
+    # re_path(r'comment/(?P<course_id>\d)/',views.CourseCommentView.as_view(),name='comment'),
     # 发表评论
-    path('addcomment/',views.AddCommentsView.as_view(),name='addcomment')
+    path('addcomment/',views.AddCommentsView.as_view(),name='addcomment'),
+    # 播放视频
+    path('video/',views.VideoPlayView.as_view(),name='video')
 
 ]

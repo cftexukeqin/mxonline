@@ -3,7 +3,7 @@ from django.views.generic import View
 from pure_pagination import PageNotAnInteger,Paginator
 from django.http import HttpResponse
 
-from .models import CourseOrg,CityDict
+from .models import CourseOrg,CityDict,Teacher
 from .forms import AskForm
 from ..utils import restful
 from ..operation.models import UserFavorite
@@ -57,6 +57,7 @@ class IndexView(View):
         }
         return render(request, 'organization/org_index.html', context=context)
 
+# 学生问答
 class UserAskView(View):
     def post(self,request):
         askform = AskForm(request.POST)
@@ -168,4 +169,36 @@ class AddFavView(View):
             else:
                 return restful.params_error(message="收藏出错!")
 
+# 授课教师
+class TeacherView(View):
+    def get(self,request):
+        all_teachers = Teacher.objects.all()
+        sort = request.GET.get('sort')
 
+        sorted_teachers = Teacher.objects.all().order_by('-click_nums')[:3]
+        if sort == 'hot':
+            all_teachers = all_teachers.order_by('-click_nums')
+
+        try:
+            page = request.GET.get("page",1)
+        except PageNotAnInteger:
+            page = 1
+
+        p = Paginator(all_teachers,1,request=request)
+        teachers = p.page(page)
+
+        context = {
+            'teachers':teachers,
+            'sorted_teachers':sorted_teachers,
+            'sort':sort
+
+        }
+        return render(request,'teacher/teachers-list.html',context=context)
+
+# 教师详情
+def teacher_detail(request,teacher_id):
+    teacher = Teacher.objects.get(id=teacher_id)
+    context = {
+        'teacher':teacher
+    }
+    return render(request,'teacher/teacher-detail.html',context=context)

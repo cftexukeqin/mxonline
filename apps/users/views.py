@@ -2,9 +2,14 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.views.generic import View
 from django.http import HttpResponse
+from django.contrib.auth.hashers import make_password
+from django.views.decorators.http import require_POST
 
-from .forms import LoginForm,RegistForm,ForgetForm,ResetPasswordForm
+from .forms import LoginForm,RegistForm,ForgetForm,ResetPasswordForm,UploadAvatarForm
 from apps.utils import restful
+
+
+from ..utils.mixin_utils import LoginRequiredMixin
 
 # 邮箱验证相关
 from django.contrib.auth.backends import ModelBackend
@@ -190,6 +195,86 @@ class ModifyPwdView(View):
             email = request.POST.get('email')
             print(modify_form.errors)
             return render(request,'auth/password_reset.html',{'email':email,"modify_form":modify_form})
+
+# 个人中心
+class UserProfileView(View):
+    def get(self,request,user_id):
+        user = UserProfile.objects.get(pk=user_id)
+        context = {
+            'user':user
+        }
+        return render(request,'usercenter/usercenter-info.html',context=context)
+
+# 我的课程
+def usercourse(request,user_id):
+    user = UserProfile.objects.get(pk=user_id)
+    context = {
+        'user':user
+    }
+    return render(request,'usercenter/usercenter-mycourse.html',context=context)
+
+# 我的收藏课程
+def userfav(request,user_id):
+    user = UserProfile.objects.get(pk=user_id)
+
+    fav_type = request.GET.get('type','org')
+
+    render_template = 'usercenter/usercenter-fav-org.html'
+    if fav_type == 'course':
+        render_template = render_template
+    elif fav_type == 'teacher':
+        render_template = 'usercenter/usercenter-fav-teacher.html'
+    elif fav_type == 'org':
+        render_template = 'usercenter/usercenter-fav-org.html'
+    context = {
+        'user':user,
+        'type':fav_type
+    }
+    return render(request,template_name=render_template,context=context)
+
+
+# 个人中心 - 我的消息
+def usermessage(request,user_id):
+    user = UserProfile.objects.get(pk=user_id)
+    context = {
+        'user':user
+    }
+    return render(request,'usercenter/usercenter-message.html',context=context)
+
+# 更换头像
+class UploadAvatarView(View,LoginRequiredMixin):
+    def post(self,request):
+        form = UploadAvatarForm(request.POST,request.FILES)
+        if form.is_valid():
+            avatar = form.cleaned_data.get('avatar_img')
+            print(avatar)
+            request.user.avatar_img = avatar
+            request.user.save()
+            return restful.ok()
+        else:
+            print(form.get_error())
+            return restful.params_error(message=form.get_error())
+
+# 个人中心修改密码
+
+class UserCenterResetPwdView(View):
+    def post(self,request):
+        pwd1 = request.POST.get('pwd1')
+        print(pwd1)
+        if pwd1:
+            user = request.user
+            print(user)
+            if user:
+                user.set_password(pwd1)
+                user.save()
+                return restful.ok()
+            else:
+                return restful.params_error(message='请输入新密码!')
+
+        else:
+            return restful.params_error(message='请输入新密码!')
+
+
 
 
 # 登出函数

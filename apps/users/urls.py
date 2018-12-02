@@ -15,7 +15,17 @@ urlpatterns = [
     re_path(r'reset/(?P<active_code>.*)/',views.ResetPasswordView.as_view(),name='reset_pwd'),
     # 极验验证码
     path('pc-geetest/login/', views.pcgetcaptcha, name='pcgetcaptcha'),
-
-
+    #　个人中心
+    re_path('usercenter/(?P<user_id>.*)/',views.UserProfileView.as_view(),name='usercenter'),
+    # 个人中心-我的课程
+    re_path('usercourse/(?P<user_id>.*)/',views.usercourse,name='usercourse'),
+    # 个人中心-我的收藏
+    re_path('userfav/(?P<user_id>.*)/',views.userfav,name='userfav'),
+    # 个人中心-我的消息
+    re_path('usermsg/(?P<user_id>.*)/',views.usermessage,name='usermsg'),
+    # 更换头像
+    path('avatar/upload/',views.UploadAvatarView.as_view(),name='avatar_upload'),
+    # 更改密码
+    path('pwdreset/',views.UserCenterResetPwdView.as_view(),name='usercenter_pwdreset')
 
 ]

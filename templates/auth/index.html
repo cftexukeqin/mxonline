@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <title>课程机构列表 - 慕学在线网</title>
+    <title>首页 - 优课在线网</title>
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
@@ -38,7 +38,7 @@
                                 </dd>
                             </dl>
                             <div class="btn">
-                                <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
+                                <a class="personcenter fl" href="{% url 'auth:usercenter' user.id %}">进入个人中心</a>
                                 <a class="fr" href="{% url 'auth:logout' %}">退出</a>
                             </div>
                         </div>
@@ -57,8 +57,6 @@
     </header>
 </section>
 <!--crumbs start-->
-
-
 <div class="banner">
     <div class="wp">
         <div class="fl">
@@ -67,7 +65,7 @@
 
                     <li>
                         <a href="http://www.imooc.com">
-                            <img width="1200" height="478" src="/static/media/banner/2016/11/57a801860001c34b12000460.jpg"/>
+                            <img width="1200" height="478" src="https://img.mukewang.com/5c0013e7000174e318720632.jpg"/>
                         </a>
                     </li>
 
@@ -86,14 +84,14 @@
                     <li>
                         <a href="http://www.projectsedu.com">
                             <img width="1200" height="478"
-                                 src="/static/media/banner/2016/11/57aa86a0000145c512000460_nMwvoQD.jpg"/>
+                                 src="https://img.mukewang.com/5c00145100019df318720632.jpg"/>
                         </a>
                     </li>
 
                     <li>
                         <a href="http://www.projectsedu.com">
                             <img width="1200" height="478"
-                                 src="/static/media/banner/2016/11/57aa86a0000145c512000460_GXIBATC.jpg"/>
+                                 src="https://img.mukewang.com/5c0013560001fd4018720632.jpg"/>
                         </a>
                     </li>
 
@@ -152,7 +150,7 @@
                                 <li>
                                     <a href="course-detail.html">
                                         <img width="470" height="300"
-                                             src="/static/media/courses/2016/12/python文件处理.jpg"/>
+                                             src="https://edu-image.nosdn.127.net/98DC8518954C35B0F81C686AEB63329D.png?imageView&quality=100&thumbnail=225y125&type=webp"/>
                                     </a>
                                 </li>
 

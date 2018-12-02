@@ -39,6 +39,7 @@ class CourseComments(models.Model):
     class Meta:
         verbose_name = '课程评论'
         verbose_name_plural = verbose_name
+        ordering = ['-add_time']
 
 # 用户课程
 class UserCourse(models.Model):

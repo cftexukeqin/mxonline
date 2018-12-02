@@ -9,6 +9,7 @@ from django.views.decorators.http import require_POST
 
 from ..utils.mixin_utils import LoginRequiredMixin
 from  .forms import AddCommentForm
+from apps.operation.serializers import CommentsSerilizer
 
 # Create your views here.
 # 课程首页
@@ -47,12 +48,18 @@ class CourseDetailView(View):
         related_courses = None
         fav_course = False
         fav_org = False
-        # 判断课程是否收藏
-        if UserFavorite.objects.filter(user=request.user,fav_id=course.id,fav_type=1):
-            fav_course = True
-        # 判断机构是否收藏
-        if UserFavorite.objects.filter(user=request.user,fav_id=course.course_org.id,fav_type=2):
-            fav_org = True
+        print(request.user)
+        if request.user.is_authenticated:
+            # 判断课程是否收藏
+            if UserFavorite.objects.filter(user=request.user,fav_id=course.id,fav_type=1):
+                fav_course = True
+            # 判断机构是否收藏
+            if UserFavorite.objects.filter(user=request.user, fav_id=course.course_org.id, fav_type=2):
+                fav_org = True
+        else:
+            fav_course = False
+            fav_org = False
+
         if tag:
             # 相关课程
             related_courses = Course.objects.filter(tag=tag).all()[1:3]
@@ -96,14 +103,14 @@ class CourseInfoView(LoginRequiredMixin,View):
         }
         return render(request,'course/course-video.html',context=context)
 
-# 课程评论
-class CourseCommentView(LoginRequiredMixin,View):
-    def get(self,request,course_id):
-        course = Course.objects.get(id=int(course_id))
-        context = {
-            'course':course
-        }
-        return render(request,'course/course-comment.html',context=context)
+# # 课程评论
+# class CourseCommentView(LoginRequiredMixin,View):
+#     def get(self,request,course_id):
+#         course = Course.objects.get(id=int(course_id))
+#         context = {
+#             'course':course
+#         }
+#         return render(request,'course/course-comment.html',context=context)
 
 # 添加评论
 class AddCommentsView(LoginRequiredMixin,View):
@@ -112,11 +119,19 @@ class AddCommentsView(LoginRequiredMixin,View):
         if form.is_valid():
             course_id = form.cleaned_data.get('course_id')
             comments = form.cleaned_data.get('comments')
-            print("comment:",comments)
+            # print("comment:",comments)
             # 添加到数据库
             comment = CourseComments(user=request.user,course_id=int(course_id),comments=comments)
             comment.save()
-            return restful.ok()
+            serializer = CommentsSerilizer(comment)
+            data = serializer.data
+            print(data)
+            return restful.result(data=data)
         else:
             print(form.errors)
             return restful.params_error('评论发表失败')
+
+# 视频播放
+class VideoPlayView(View):
+    def get(self,request):
+        return render(request,'course/course-play.html')
