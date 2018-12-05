@@ -34,3 +34,10 @@ class UploadAvatarForm(forms.ModelForm,FormMixin):
     class Meta:
         model = UserProfile
         fields = ['avatar_img']
+
+
+# 个人信息修改
+class UpdateUserInfoForm(forms.ModelForm,FormMixin):
+    class Meta:
+        model = UserProfile
+        fields = ['nick_name','birthday','address','mobile','gender']

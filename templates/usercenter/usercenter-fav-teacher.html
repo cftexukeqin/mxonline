@@ -12,9 +12,9 @@
             <div class="personal_des permessage">
                 <div class="head">
                     <ul class="tab_header messagehead">
-                        <li class="{% ifequal type 'org' %}active{% endifequal %}"><a href="{% url 'auth:userfav' user_id=user.id %}?type=org">课程机构</a></li>
-                        <li class="{% ifequal type 'teacher' %}active{% endifequal %}"><a href="{% url 'auth:userfav' user_id=user.id %}?type=teacher">授课教师 </a></li>
-                        <li class="{% ifequal type 'course' %}active{% endifequal %}"><a href="{% url 'auth:userfav' user_id=user.id %}?type=course">公开课程</a></li>
+                        <li class="{% ifequal type 'org' %}active{% endifequal %}"><a href="{% url 'auth:userfav'  %}?type=org">课程机构</a></li>
+                        <li class="{% ifequal type 'teacher' %}active{% endifequal %}"><a href="{% url 'auth:userfav'  %}?type=teacher">授课教师 </a></li>
+                        <li class="{% ifequal type 'course' %}active{% endifequal %}"><a href="{% url 'auth:userfav'%}?type=course">公开课程</a></li>
                     </ul>
                 </div>
                 <div class="messagelist">

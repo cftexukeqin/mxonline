@@ -24,9 +24,9 @@ class UserCourseAdmin(object):
 class UserMessageAdmin(object):
     '''用户消息后台'''
 
-    list_display = ['users', 'message', 'has_read', 'add_time']
-    search_fields = ['users', 'message', 'has_read']
-    list_filter = ['users', 'message', 'has_read', 'add_time']
+    list_display = ['user', 'message', 'has_read', 'add_time']
+    search_fields = ['user', 'message', 'has_read']
+    list_filter = ['user', 'message', 'has_read', 'add_time']
 
 
 

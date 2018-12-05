@@ -5,9 +5,11 @@ from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password
 from django.views.decorators.http import require_POST
 
-from .forms import LoginForm,RegistForm,ForgetForm,ResetPasswordForm,UploadAvatarForm
+from .forms import LoginForm,RegistForm,ForgetForm,ResetPasswordForm,UploadAvatarForm,UpdateUserInfoForm
 from apps.utils import restful
-
+from apps.operation.models import UserCourse,UserMessage
+# 分页
+from pure_pagination import PageNotAnInteger,Paginator
 
 from ..utils.mixin_utils import LoginRequiredMixin
 
@@ -196,26 +198,27 @@ class ModifyPwdView(View):
             print(modify_form.errors)
             return render(request,'auth/password_reset.html',{'email':email,"modify_form":modify_form})
 
-# 个人中心
+# 个人中心  主页
 class UserProfileView(View):
-    def get(self,request,user_id):
-        user = UserProfile.objects.get(pk=user_id)
+    def get(self,request):
         context = {
-            'user':user
+            'user':request.user
         }
         return render(request,'usercenter/usercenter-info.html',context=context)
 
 # 我的课程
-def usercourse(request,user_id):
-    user = UserProfile.objects.get(pk=user_id)
+def usercourse(request):
+    usercourses = UserCourse.objects.filter(user=request.user).all()
+
     context = {
-        'user':user
+        'user':request.user,
+        'usercourses':usercourses
     }
     return render(request,'usercenter/usercenter-mycourse.html',context=context)
 
-# 我的收藏课程
-def userfav(request,user_id):
-    user = UserProfile.objects.get(pk=user_id)
+# 我的收藏  机构 课程 老师
+def userfav(request):
+    user = request.user
 
     fav_type = request.GET.get('type','org')
 
@@ -234,10 +237,19 @@ def userfav(request,user_id):
 
 
 # 个人中心 - 我的消息
-def usermessage(request,user_id):
-    user = UserProfile.objects.get(pk=user_id)
+def usermessage(request):
+
+    all_messages = UserMessage.objects.filter(user=request.user.id)
+    try:
+        page = request.GET.get('page',1)
+    except PageNotAnInteger:
+        page = 1
+
+    p = Paginator(all_messages,4,request=request)
+    messages = p.page(page)
+
     context = {
-        'user':user
+        'messages':messages
     }
     return render(request,'usercenter/usercenter-message.html',context=context)
 
@@ -274,8 +286,42 @@ class UserCenterResetPwdView(View):
         else:
             return restful.params_error(message='请输入新密码!')
 
+# 发送邮箱验证码
+class SendEmailCodeView(LoginRequiredMixin,View):
+    def get(self,request):
+        email = request.GET.get('email')
 
+        if UserProfile.objects.filter(email=email).first():
+            return restful.params_error(message='邮箱已经存在!')
 
+        send_regist_email(email,6,'update_email')
+        return restful.ok()
+
+# 完成邮箱修改
+class UpdateEmailView(LoginRequiredMixin,View):
+    def post(self,request):
+        email = request.POST.get('email')
+
+        # user = UserProfile.objects.filter(email=email).first()
+        # user.email = email
+        # user.save()
+        user = request.user
+        user.email = email
+        user.save()
+        return restful.ok()
+
+# 保存个人信息
+class SaveUserInfoView(View,LoginRequiredMixin):
+    def post(self,request):
+        # 实例form 时,传入instance参数,可绑定对象
+        # 此列中绑定了request.user 对象
+        form = UpdateUserInfoForm(request.POST,instance=request.user)
+        if form.is_valid():
+            form.save()
+            return restful.ok()
+        else:
+            print(form.get_error())
+            return restful.params_error(message=form.get_error())
 
 # 登出函数
 def my_logout(request):

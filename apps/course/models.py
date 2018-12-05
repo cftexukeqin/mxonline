@@ -30,6 +30,7 @@ class Course(models.Model):
     # 课程分类
     category = models.CharField('课程分类',max_length=50,default="")
 
+    # is_banner = models.BooleanField("是否轮播",default=False)
 
     class Meta:
         verbose_name = '课程'

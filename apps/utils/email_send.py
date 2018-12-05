@@ -17,11 +17,11 @@ def random_str(num=12):
     return code_str
 
 
-def send_regist_email(email,send_type='register'):
+def send_regist_email(email,code_num=16,send_type='register'):
     # 发送之前先保存到数据库,到时候查询连接是否存在
     # 实例化一个EmailVerifyRecord()
     email_record = EmailVerifyRecord()
-    code = random_str(16)
+    code = random_str(code_num)
     email_record.code = code
     email_record.email = email
     email_record.send_type = send_type
@@ -46,6 +46,17 @@ def send_regist_email(email,send_type='register'):
     if send_type == "forget":
         email_title = "优课课堂邮箱验证"
         email_body = "请点击下面的链接重置你的账号: http://127.0.0.1:8000/user/reset/{0}/".format(code)
+
+        #　使用Django内置函数完成邮件发送
+        send_status = send_mail(email_title,email_body,EMAIL_FROM,[email])
+        if send_status:
+            pass
+        else:
+            print("发送失败")
+
+    if send_type == "update_email":
+        email_title = "优课课堂邮箱验证"
+        email_body = "你的邮箱验证码是%s" % code
 
         #　使用Django内置函数完成邮件发送
         send_status = send_mail(email_title,email_body,EMAIL_FROM,[email])

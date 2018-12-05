@@ -12,7 +12,7 @@ function sendCodeChangeEmail($btn){
         cache: false,
         type: "get",
         dataType:'json',
-        url:"/users/sendemail_code/",
+        url:"/user/sendemail/code/",
         data:$('#jsChangeEmailForm').serialize(),
         async: true,
         beforeSend:function(XMLHttpRequest){
@@ -22,11 +22,10 @@ function sendCodeChangeEmail($btn){
         success: function(data){
             if(data.email){
                 Dml.fun.showValidateError($('#jsChangeEmail'), data.email);
-            }else if(data.status == 'success'){
+            }else if(data.code === 200){
                 Dml.fun.showErrorTips($('#jsChangeEmailTips'), "邮箱验证码已发送");
-            }else if(data.status == 'failure'){
-                 Dml.fun.showValidateError($('#jsChangeEmail'), "邮箱验证码发送失败");
-            }else if(data.status == 'success'){
+            }else if(data.status !== 200){
+                 Dml.fun.showValidateError($('#jsChangeEmail'), data['msg']);
             }
         },
         complete: function(XMLHttpRequest){
@@ -50,7 +49,7 @@ var verify = verifyDialogSubmit(
         cache: false,
         type: 'post',
         dataType:'json',
-        url:"/users/update_email/ ",
+        url:"/user/update/email/",
         data:$('#jsChangeEmailForm').serialize(),
         async: true,
         beforeSend:function(XMLHttpRequest){
@@ -61,9 +60,9 @@ var verify = verifyDialogSubmit(
         success: function(data) {
             if(data.email){
                 Dml.fun.showValidateError($('#jsChangeEmail'), data.email);
-            }else if(data.status == "success"){
+            }else if(data.code === 200){
                 Dml.fun.showErrorTips($('#jsChangePhoneTips'), "邮箱信息更新成功");
-                setTimeout(function(){location.reload();},1000);
+                setTimeout(function(){location.reload();},2000);
             }else{
                  Dml.fun.showValidateError($('#jsChangeEmail'), "邮箱信息更新失败");
             }
@@ -147,7 +146,7 @@ $(function(){
     //保存个人资料
     $('#jsEditUserBtn').on('click', function(){
         var _self = $(this),
-            $jsEditUserForm = $('#jsEditUserForm')
+            $jsEditUserForm = $('#jsEditUserForm');
             verify = verifySubmit(
             [
                 {id: '#nick_name', tips: Dml.Msg.epNickName, require: true}

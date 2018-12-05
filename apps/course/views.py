@@ -12,6 +12,7 @@ from  .forms import AddCommentForm
 from apps.operation.serializers import CommentsSerilizer
 
 # Create your views here.
+
 # 课程首页
 class CourseIndexView(View):
     def get(self,request):
@@ -39,6 +40,7 @@ class CourseIndexView(View):
         }
         return render(request,'course/course-list.html',context=context)
 
+# 课程详情
 class CourseDetailView(View):
     def get(self,request,course_id):
         course = Course.objects.select_related('course_org').get(id=int(course_id))

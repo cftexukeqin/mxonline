@@ -3,7 +3,7 @@ from django.db import models
 from datetime import datetime
 from apps.course.models import Course
 from ..users.models import UserProfile
-# Create your models here.
+
 
 # 用户咨询
 class UserAsk(models.Model):
@@ -21,7 +21,7 @@ class UserAsk(models.Model):
 
 #用户消息表
 class UserMessage(models.Model):
-    users = models.IntegerField('接受用户',default=0)
+    user = models.IntegerField("接受用户",default=0)
     message = models.CharField('消息内容',max_length=500)
     has_read = models.BooleanField('是否已读',default=False)
     add_time = models.DateTimeField('添加时间', auto_now_add=True)
