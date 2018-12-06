@@ -59,7 +59,7 @@ User.prototype.listenModifyInfo = function () {
         var email = emailInput.val();
         console.log(birday);
         xfzajax.post({
-            'url':'/user/save/info/',
+            'url':'/user/update/info/',
             'data':{
                 'nick_name':nickname,
                 'birthday':birday,

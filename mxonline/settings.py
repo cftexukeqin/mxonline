@@ -171,4 +171,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 import os
 import sys
 
+
 sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))

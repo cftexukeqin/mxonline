@@ -18,13 +18,13 @@ urlpatterns = [
     # 极验验证码
     path('pc-geetest/login/', views.pcgetcaptcha, name='pcgetcaptcha'),
     #　个人中心
-    re_path('info/',views.UserProfileView.as_view(),name='usercenter'),
+    path('info/',views.UserProfileView.as_view(),name='usercenter'),
     # 个人中心-我的课程
-    re_path('course/',views.usercourse,name='usercourse'),
+    path('course/',views.usercourse,name='usercourse'),
     # 个人中心-我的收藏
-    re_path('fav/',views.userfav,name='userfav'),
+    path('fav/',views.userfav,name='userfav'),
     # 个人中心-我的消息
-    re_path('message/',views.usermessage,name='usermsg'),
+    path('message/',views.usermessage,name='usermsg'),
     # 更换头像
     path('avatar/upload/',views.UploadAvatarView.as_view(),name='avatar_upload'),
     # 更改密码
@@ -34,6 +34,6 @@ urlpatterns = [
     # 修改邮箱 - 完成邮箱修改
     path('update/email/', views.UpdateEmailView.as_view(), name='update_email'),
     # 个人信息 -保存
-    path('save/info/', views.SaveUserInfoView.as_view(), name='save_info'),
+    path('update/info/', views.SaveUserInfoView.as_view(), name='save_info'),
 
 ]

@@ -21,7 +21,7 @@ class UserAsk(models.Model):
 
 #用户消息表
 class UserMessage(models.Model):
-    user = models.IntegerField("接受用户",default=0)
+    user = models.ForeignKey(UserProfile,verbose_name="接受用户",on_delete=models.CASCADE)
     message = models.CharField('消息内容',max_length=500)
     has_read = models.BooleanField('是否已读',default=False)
     add_time = models.DateTimeField('添加时间', auto_now_add=True)
