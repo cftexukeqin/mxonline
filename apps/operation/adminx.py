@@ -9,6 +9,7 @@ class UserAskAdmin(object):
     list_display = ['name', 'mobile', 'course_name', 'add_time']
     search_fields = ['name', 'mobile', 'course_name']
     list_filter = ['name', 'mobile', 'course_name', 'add_time']
+    model_icon= "fa fa-hand-o-right"
 
 
 
