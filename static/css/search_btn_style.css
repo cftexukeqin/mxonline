@@ -1,0 +1,13 @@
+#searchBtn{
+         width:38px;
+         height:38px;
+         background:url(/static/images/search_btn.png) no-repeat center;
+         cursor:pointer;
+/* 上面的代码是常规设置， 即：引入一个图片背景，设置在中心位置，大小和按钮的大小一致，以及鼠标指针为手型 */
+
+          display:block;
+          font-size:0;
+          line-height:0;
+          text-indent:-9999px;
+/* 上面的不用多问，四句一起拷贝就可以了，大概意思就是把value值设置为0像素，也就是肉眼无法看到，但却又是存在的（用$_POST['submit_btn'] 可以证明）*/
+}

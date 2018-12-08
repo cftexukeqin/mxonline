@@ -31,6 +31,10 @@ urlpatterns = [
     path('org/',include('apps.organization.urls')),
     path('course/',include('apps.course.urls')),
     # 处理图片显示的url
-    re_path(r'^media/(?P<path>.*)',serve,{'document_root':MEDIA_ROOT})
+    re_path(r'^media/(?P<path>.*)',serve,{'document_root':MEDIA_ROOT}),
+    # Ueditor
+    path('ueditor',include('DjangoUeditor.urls')),
+    # haystack 配置
+    path('search/',include('haystack.urls'))
 
 ]

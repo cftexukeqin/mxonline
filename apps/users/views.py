@@ -201,8 +201,10 @@ class ModifyPwdView(View):
 # 个人中心  主页
 class UserProfileView(View):
     def get(self,request):
+        unread_msg_count = UserMessage.objects.filter(user=request.user.id,has_read=False).count()
         context = {
-            'user':request.user
+            'user':request.user,
+            'unread_msg_count':unread_msg_count
         }
         return render(request,'usercenter/usercenter-info.html',context=context)
 

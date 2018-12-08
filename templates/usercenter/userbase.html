@@ -54,9 +54,9 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="usercenter-message.html">
-                            <div class="msg-num"><span id="MsgNum"></span></div>
-                        </a>
+                        {% block msg_div %}
+
+                        {% endblock %}
                     {% else %}
                         <a style="color:white" class="fr registerbtn" href="{% url 'auth:regist' %}">注册</a>
                         <a style="color:white" class="fr loginbtn" href="{% url 'auth:login' %}">登录</a>
@@ -70,8 +70,8 @@
 
             <div class="middle">
                 <div class="wp">
-                    <a href="index.html"><img class="fl" src="{% static 'images/new_logo1.png' %}"/></a>
-                    <h1>我的慕学网</h1>
+                    <a href="{% url 'index' %}"><img class="fl" src="{% static 'images/new_logo1.png' %}"/></a>
+                    <h1>我的优课网</h1>
                 </div>
             </div>
         </div>
@@ -81,8 +81,8 @@
 <section>
     <div class="wp">
         <ul class="crumbs">
-            <li><a href="index.html">首页</a>></li>
-            <li><a href="/user/home/">个人中心</a>></li>
+            <li><a href="{% url 'index' %}">首页</a>></li>
+            <li><a href="{% url 'auth:usercenter' %}">个人中心</a>></li>
             <li>{% block custom_bread %}{% endblock %}</li>
         </ul>
     </div>

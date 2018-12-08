@@ -12,6 +12,7 @@
                                 <a href="{% url 'org:teacher_list' %}">授课教师</a>
                             </li>
                             <li class="{% if request.path|slice:'9' == '/org/list'  %}active{% endif %}"><a href="{% url 'org:index' %}">授课机构</a></li>
+                            <li><a href="/search/">搜索</a></li>
                         </ul>
                     </div>
                 </div>

@@ -6,6 +6,11 @@
 {% block custom_bread %}
 个人资料
 {% endblock %}
+{% block msg_div %}
+    <a href="usercenter-message.html">
+        <div class="msg-num"><span id="MsgNum"></span>{{ unread_msg_count }}</div>
+    </a>
+{% endblock %}
 {% block custom_css %}
 
 {% endblock %}

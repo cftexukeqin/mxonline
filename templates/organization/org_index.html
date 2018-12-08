@@ -64,41 +64,41 @@
                         </ul>
                     </div>
                     {% for org in orgs.object_list %}
-                         <dl class="des difdes">
-                        <dt>
-                            <a href="org-detail-homepage.html">
-                                <img width="200" height="120" class="scrollLoading"
-                                     data-url="{{ MEDIA_URL }}{{ org.image }}"/>
-                            </a>
-                        </dt>
-                        <dd>
-                            <div class="clearfix">
-                                <a href="{% url 'org:org_home' org.id %}">
-                                    <h1>{{ org.name }}</h1>
-                                    <div class="pic fl">
-
-                                        <img src="/static/images/authentication.png"/>
-
-                                        <img src="/static/images/gold.png"/>
-
-                                    </div>
+                        <dl class="des difdes">
+                            <dt>
+                                <a href="org-detail-homepage.html">
+                                    <img width="200" height="120" class="scrollLoading"
+                                         data-url="{{ MEDIA_URL }}{{ org.image }}"/>
                                 </a>
-                            </div>
-                            <ul class="cont">
-                                <li class="first"><p class="pic9">课程数：<span>{{ org.course_nums }}</span></p>
-                                    <p class="c7">学习人数：<span>{{ org.students }}</span></p></li>
-                                <li class="c8" style="padding-left:18px;">{{ org.address }}</li>
-                                <li class="pic10" style="padding-left:18px;">经典课程：
+                            </dt>
+                            <dd>
+                                <div class="clearfix">
+                                    <a href="{% url 'org:org_home' org.id %}">
+                                        <h1>{{ org.name }}</h1>
+                                        <div class="pic fl">
 
-                                    <a href="/diary/19/">c语言基础入门</a>
+                                            <img src="/static/images/authentication.png"/>
 
-                                    <a href="/diary/16/">数据库基础</a>
+                                            <img src="/static/images/gold.png"/>
 
-                                </li>
-                            </ul>
-                        </dd>
-                        <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><br/>联系<br/>服务</div>
-                    </dl>
+                                        </div>
+                                    </a>
+                                </div>
+                                <ul class="cont">
+                                    <li class="first"><p class="pic9">课程数：<span>{{ org.course_nums }}</span></p>
+                                        <p class="c7">学习人数：<span>{{ org.students }}</span></p></li>
+                                    <li class="c8" style="padding-left:18px;">{{ org.address }}</li>
+                                    <li class="pic10" style="padding-left:18px;">经典课程：
+
+                                        <a href="/diary/19/">c语言基础入门</a>
+
+                                        <a href="/diary/16/">数据库基础</a>
+
+                                    </li>
+                                </ul>
+                            </dd>
+                            <div class="buy start_groupbuy jsShowPerfect2" data-id="22"><br/>联系<br/>服务</div>
+                        </dl>
                     {% endfor %}
 
                 </div>

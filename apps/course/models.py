@@ -1,7 +1,7 @@
 from django.db import models
 # from ..operation.models import UserCourse
-from datetime import datetime
 from ..organization.models import CourseOrg,Teacher
+from DjangoUeditor.models import UEditorField
 
 # 课程模型
 class Course(models.Model):
@@ -13,7 +13,8 @@ class Course(models.Model):
 
     name = models.CharField('课程名称',max_length=50)
     desc = models.CharField('课程描述',max_length=300)
-    detail = models.TextField("课程详情")
+    # detail = models.TextField("课程详情")
+    detail = UEditorField(verbose_name="课程详情",width=600,height=300,imagePath="courses/ueditor/",filePath="courses/ueditor/",default="")
     degree = models.CharField('难度',choices=DEGREE_CHOICES,max_length=2)
     learn_times = models.IntegerField("学习时长(分钟数)",default=0)
     students = models.IntegerField("学习人数",default=0)
@@ -31,6 +32,9 @@ class Course(models.Model):
     category = models.CharField('课程分类',max_length=50,default="")
 
     # is_banner = models.BooleanField("是否轮播",default=False)
+
+    # 该字段用于前端查询区分
+    type = models.CharField('类型',max_length=10,default='course')
 
     class Meta:
         verbose_name = '课程'

@@ -25,3 +25,7 @@ def time_since(value):
             return value.strftime("%Y-%m-%d %H:%M")
     else:
         return value
+
+@register.filter
+def result_type(value):
+    return value.type

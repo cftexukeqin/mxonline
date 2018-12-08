@@ -50,7 +50,11 @@ INSTALLED_APPS = [
     #分页功能
     'pure_pagination',
     # 序列化数据 传递json格式的数据给前端
-    'rest_framework'
+    'rest_framework',
+    # 集成Ueditor
+    "DjangoUeditor",
+    # 全局搜索
+    'haystack'
 ]
 
 MIDDLEWARE = [
@@ -173,3 +177,16 @@ import sys
 
 
 sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))
+
+# haystack搜索配置
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 设置haystack的搜索引擎
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        # 设置索引文件的位置
+        'PATH': os.path.join(BASE_DIR, 'whoosh_index'),
+    }
+}
+
+# 增删改查后自动创建索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

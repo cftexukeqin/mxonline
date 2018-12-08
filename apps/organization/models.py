@@ -30,7 +30,9 @@ class CourseOrg(models.Model):
     city = models.ForeignKey(CityDict,verbose_name='所在城市',on_delete=models.CASCADE)
     add_time = models.DateTimeField('添加日期',auto_now_add=True)
     category = models.CharField(choices=ORG_CHOICES,max_length=20,verbose_name='机构类别',default='pxjg')
-
+    
+    # 该字段用于前端查询区分
+    type = models.CharField('类型',max_length=10,default='org')
     class Meta:
         verbose_name = '课程机构'
         verbose_name_plural = verbose_name
@@ -54,7 +56,8 @@ class Teacher(models.Model):
     add_time = models.DateTimeField('添加日期',auto_now_add=True)
     age = models.IntegerField('教师年龄',blank=True)
     image = models.ImageField(upload_to='teacher/%Y/%m',default="",verbose_name="头像",max_length=100)
-
+    # 该字段用于前端查询区分
+    type = models.CharField('类型',max_length=10,default='teacher')
     class Meta:
         verbose_name = '教师'
         verbose_name_plural = verbose_name

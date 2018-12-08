@@ -38,9 +38,13 @@ Organization.prototype.listenUserAskEvent = function(){
             },
             'success':function (result) {
                 if(result['code'] === 200){
-                    window.messageBox.showSuccess("提问成功!")
+                    window.messageBox.showSuccess("提问成功!");
+                    nameInput.val("");
+                    mobileInput.val("");
+                    courseInput.val("");
                 }else {
-                    console.log(result['msg'])
+                    console.log(result['msg']);
+
                 }
             },
             'fail':function (error) {

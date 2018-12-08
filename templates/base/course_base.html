@@ -41,7 +41,7 @@
                                     </dd>
                                 </dl>
                                 <div class="btn">
-                                    <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
+                                    <a class="personcenter fl" href="{% url 'auth:usercenter' %}">进入个人中心</a>
                                     <a class="fr" href="{% url 'auth:logout' %}">退出</a>
                                 </div>
                             </div>
@@ -50,7 +50,7 @@
                         <a style="color:white" class="fr registerbtn" href="{% url 'auth:regist' %}">注册</a>
                         <a style="color:white" class="fr loginbtn" href="{% url 'auth:login' %}">登录</a>
                     {% endif %}
-                    <a href="usercenter-message.html">
+                    <a href="{% url 'auth:usermsg' %}">
                         <div class="msg-num"><span id="MsgNum">0</span></div>
                     </a>
 
