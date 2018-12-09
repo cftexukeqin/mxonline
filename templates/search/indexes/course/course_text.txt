@@ -1,3 +1,5 @@
 {{ object.name }}
 {{ object.detail }}
 {{ object.desc }}
+{{ object.teacher.name }}
+{{ object.course_org.name }}
