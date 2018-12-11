@@ -15,11 +15,29 @@ from ..utils.mixin_utils import LoginRequiredMixin
 
 # 邮箱验证相关
 from django.contrib.auth.backends import ModelBackend
-from .models import UserProfile,EmailVerifyRecord
+from .models import UserProfile,EmailVerifyRecord,Banner
+from apps.course.models import Course,CourseOrg
 from django.db.models import Q
 from ..utils.email_send import send_regist_email
 import json
 from datetime import datetime
+
+
+class IndexView(View):
+    def get(self,request):
+        # 轮播图
+        banners = Banner.objects.all()
+        courses = Course.objects.all()[:6]
+        orgs = CourseOrg.objects.all()
+
+        context = {
+            'banners':banners,
+            'courses':courses,
+            'orgs':orgs
+        }
+        return render(request,'auth/index.html',context=context)
+
+
 
 #极验
 from ..utils.geetest_sdk.geetest import GeetestLib

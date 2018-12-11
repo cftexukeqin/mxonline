@@ -46,14 +46,18 @@ class EmailVerifyRecord(models.Model):
 
 class Banner(models.Model):
     title = models.CharField('标题',max_length=100)
-    image = models.ImageField("轮播图",upload_to='image/banner/%Y/%m',max_length=100)
-    image_url = models.URLField("访问地址",max_length=200)
+    # image = models.ImageField("轮播图",upload_to='image/banner/%Y/%m',max_length=100)
+    img_url = models.CharField('轮播图',max_length=100,default="")
+    link_url = models.URLField("访问地址",max_length=200)
     index = models.IntegerField("优先级",default=0)
     add_time = models.DateTimeField('添加时间',auto_now_add=True)
 
     class Meta:
         verbose_name = "轮播图"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title
 
 
 

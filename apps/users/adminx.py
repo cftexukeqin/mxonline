@@ -34,8 +34,8 @@ xadmin.site.register(EmailVerifyRecord,EmailVerifyRecordAdmin)
 
 # 显示Banner
 class BannerAdmin(object):
-    list_display = ['title','image','image_url','index','add_time']
-    search_fields = ['title','image','image_url','index']
-    list_filter = ['title','image','image_url','index','add_time']
+    list_display = ['title','img_url','link_url','index','add_time']
+    search_fields = ['title','img_url','link_url','index']
+    list_filter = ['title','img_url','link_url','index','add_time']
 
 xadmin.site.register(Banner,BannerAdmin)

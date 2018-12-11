@@ -20,11 +20,12 @@ from django.views.generic import TemplateView
 
 from django.views.static import serve
 from mxonline.settings import MEDIA_ROOT
+from apps.users import views
 
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
-    path('', TemplateView.as_view(template_name='auth/index.html'), name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     # 用户相关路由
     path('user/',include('apps.users.urls')),
     path('captcha/',include('captcha.urls')),
