@@ -88,6 +88,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mxonline.wsgi.application'
 
+# 静态文件路径
+STATIC_ROOT = os.path.join(BASE_DIR,'static_dist')
+
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
