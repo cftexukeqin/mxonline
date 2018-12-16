@@ -16,7 +16,7 @@ from ..utils.mixin_utils import LoginRequiredMixin
 # 邮箱验证相关
 from django.contrib.auth.backends import ModelBackend
 from .models import UserProfile,EmailVerifyRecord,Banner
-from apps.course.models import Course,CourseOrg
+from apps.course.models import Course,CourseOrg,Teacher
 from django.db.models import Q
 from ..utils.email_send import send_regist_email
 import json
@@ -29,11 +29,13 @@ class IndexView(View):
         banners = Banner.objects.all()
         courses = Course.objects.all()[:6]
         orgs = CourseOrg.objects.all()
+        teachers = Teacher.objects.all()[:4]
 
         context = {
             'banners':banners,
             'courses':courses,
-            'orgs':orgs
+            'orgs':orgs,
+            "teachers":teachers
         }
         return render(request,'auth/index.html',context=context)
 
@@ -144,7 +146,7 @@ class RegistView(View):
             user.set_password(password)
             user.save()
             # 此处是以邮箱注册,用户名就是邮箱
-            send_regist_email(username,'register')
+            send_regist_email(username,code_num=16,send_type='register')
             return render(request, 'auth/login.html', {'msg': '注册成功,请前往邮箱激活!'})
         else:
             print(regist_form.errors)
@@ -174,10 +176,10 @@ class ForgetView(View):
         forget_form = ForgetForm(request.POST)
         if forget_form.is_valid():
             email = forget_form.cleaned_data.get('email')
-            send_regist_email(email,'forget')
+            send_regist_email(email,code_num=16,send_type='forget')
             return render(request,'auth/send_success.html')
         else:
-            render(request,'auth/forgetpwd.html',{'forget_form':forget_form})
+            return render(request,'auth/forgetpwd.html',{'forget_form':forget_form})
 
 # 重置密码
 # 忘记密码--邮箱--点击链接--跳转到重置密码界面--输入新密码--更新密码--修改成功,跳转到登录界面

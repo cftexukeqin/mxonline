@@ -1,0 +1,72 @@
+.good-teacher{
+    width: 100%;
+    height: 408px;
+    background:url("/static/images/teachbg.jpg") no-repeat center center;
+    background-size:cover;
+    margin-bottom: 100px;
+}
+.teacher-title{
+    text-align: center;
+    color: white;
+    /*padding: 40px auto;*/
+    padding-top: 40px;
+    font-size: 20px;
+}
+.teach-star{
+    font-size: 20px;
+    padding: 0 10px;
+}
+.teachcher-box{
+    width: 60%;
+    margin: 0 auto;
+    height: 300px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.t-group{
+    width: 240px;
+    height: 300px;
+    float: left;
+    background:rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.t-group:hover{
+    background: white;
+}
+.img-box{
+    height: 100px;
+    width: 100%;
+
+    overflow: hidden;
+}
+.img-box img{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50px;
+    margin-left: 72px;
+}
+
+.more-info{
+    margin: 20px 20px auto;
+    text-align: center;
+    font-size: 16px;
+    width: 200px;
+
+}
+.more-info p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.t-name{
+    font-size: 20px;
+    font-family: "Microsoft YaHei";
+    font-weight: bold;
+}
+.t-job{
+    font-size: 14px;
+    color: #4D555D;
+}
