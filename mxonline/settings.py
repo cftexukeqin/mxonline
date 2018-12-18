@@ -193,3 +193,13 @@ HAYSTACK_CONNECTIONS = {
 
 # 增删改查后自动创建索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+
+# cache
+# memcached 的配置
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
