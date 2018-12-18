@@ -14,6 +14,5 @@ urlpatterns = [
     # 发表评论
     path('addcomment/',views.AddCommentsView.as_view(),name='addcomment'),
     # 播放视频
-    path('video/',views.VideoPlayView.as_view(),name='video')
-
+    path('video/',views.VideoPlayView.as_view(),name='video'),
 ]

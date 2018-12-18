@@ -37,7 +37,7 @@ class IndexView(View):
             'orgs':orgs,
             "teachers":teachers
         }
-        return render(request,'auth/index.html',context=context)
+        return render(request, 'auth/index.html', context=context)
 
 
 

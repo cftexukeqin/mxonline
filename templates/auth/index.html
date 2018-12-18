@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/teachser-style.css">
 {#    阿里icon#}
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_968292_87tbxdkitkm.css">
 
@@ -178,25 +179,29 @@
         优 / 课 / 精 / 英 / 教 / 师
         <i class="teach-star icon-star1 iconfont"></i>
     </h1>
-    <div class="teachcher-box">
-        <ul>
-            {% for teacher in teachers %}
-                <a href="{% url 'org:teacher_detail' teacher.pk %}">
-                    <li class="t-group">
-                        <div class="img-box">
-                            <img src="{{ MEDIA_URL }}{{ teacher.image }}" alt="">
-                        </div>
-                        <div class="more-info">
-                            <p class="t-name">{{ teacher.name }}</p>
-                            <p class="t-job">{{ teacher.work_position }}</p>
-                            <p class="t-job">{{ teacher.points }}</p>
-                            <p class="t-job">全栈工程师</p>
-                        </div>
-                    </li>
-                </a>
-            {% endfor %}
-        </ul>
-    </div>
+    <div class="bodyCon08"><!--学员-->
+	<div class="students">
+		  <div id="four_flash">
+			<div class="flashBg">
+				<ul class="mobile">
+                    {% for teacher in teachers %}
+                        <a href="{% url 'org:teacher_detail' teacher.pk %}">
+                            <li>
+                                <img src="{{ MEDIA_URL }}{{ teacher.image }}"/>
+                                <dd>{{ teacher.name }}</dd>
+                                <p>{{ teacher.work_company }}</p>
+                                <p>{{ teacher.points }}</p>
+                            </li>
+                        </a>
+                    {% endfor %}
+				</ul>
+			</div>
+			<div class="but_left"><img src="/static/images/qianxleft.png" /></div>
+			<div class="but_right"><img src="/static/images/qianxr.png" /></div>
+		  </div>
+
+	</div>
+</div>
 </div>
 {% include "common/footer.html" %}
 <script src="/static/js/selectUi.js" type='text/javascript'></script>
@@ -209,6 +214,28 @@
 <script src="/static/js/deco-common.js" type="text/javascript"></script>
 
 <script type="text/javascript" src="/static/js/index.js"></script>
+<script type="text/javascript">
+//学员
+var _index5=0;
+$("#four_flash .but_right img").click(function(){
+	_index5++;
+	var len=$(".flashBg ul.mobile li").length;
+	if(_index5+5>len){
+		$("#four_flash .flashBg ul.mobile").stop().append($("ul.mobile").html());
+	}
+	$("#four_flash .flashBg ul.mobile").stop().animate({left:-_index5*320},500);
+	});
+
+$("#four_flash .but_left img").click(function(){
+	if(_index5==0){
+		$("ul.mobile").prepend($("ul.mobile").html());
+		$("ul.mobile").css("left","-1380px");
+		_index5=6
+	}
+	_index5--;
+	$("#four_flash .flashBg ul.mobile").stop().animate({left:-_index5*320},500);
+	});
+</script>
 
 </body>
 </html>
