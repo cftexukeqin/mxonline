@@ -11,10 +11,15 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
     <link rel="stylesheet" type="text/css" href="/static/teachser-style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/new-banner.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/ux-micro-icon.css">
+
+
 {#    阿里icon#}
     <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_968292_87tbxdkitkm.css">
 
     <script src="/static/js/jquery.min.js" type="text/javascript"></script>
+    <script src="/static/own_js/jquery.SuperSlide.2.1.1.js"></script>
     <script src="/static/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
 
 </head>
@@ -55,60 +60,60 @@
             </div>
 
             {% include 'common/middle.html' %}
-            {% include 'common/nav.html' %}
+{#            {% include 'common/nav.html' %}#}
 
         </div>
     </header>
 </section>
 <!--crumbs start-->
-<div class="banner">
-    <div class="wp">
-        <div class="fl">
-            <div class="imgslide" style="padding-top: 25px">
-                <ul class="imgs">
-                    {% for banner in banners %}
-                        <li >
-                            <a href="{{ banner.link_url }}">
-                                <img width="1200" height="400" style="border-radius: 10px" src="{{ banner.img_url }}"/>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="unslider-arrow prev"></div>
-            <div class="unslider-arrow next"></div>
-        </div>
-
-    </div>
-
-
-</div>
+{#<div class="banner">#}
+{#    <div class="wp">#}
+{#        <div class="fl">#}
+{#            <div class="imgslide" style="padding-top: 25px">#}
+{#                <ul class="imgs">#}
+{#                    {% for banner in banners %}#}
+{#                        <li >#}
+{#                            <a href="{{ banner.link_url }}">#}
+{#                                <img width="1200" height="400" style="border-radius: 10px" src="{{ banner.img_url }}"/>#}
+{#                            </a>#}
+{#                        </li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="unslider-arrow prev"></div>#}
+{#            <div class="unslider-arrow next"></div>#}
+{#        </div>#}
+{##}
+{#    </div>#}
+{##}
+{#</div>#}
 <!--banner end-->
 <!--feature start-->
-<section>
-    <div class="wp">
-        <ul class="feature">
-            <li class="feature1">
-                <img class="pic" src="/static/images/feature1.png"/>
-                <p class="center">专业权威</p>
-            </li>
-            <li class="feature2">
-                <img class="pic" src="/static/images/feature2.png"/>
-                <p class="center">课程最新</p>
-            </li>
-            <li class="feature3">
-                <img class="pic" src="/static/images/feature3.png"/>
-                <p class="center">名师授课</p>
-            </li>
-            <li class="feature4">
-                <img class="pic" src="/static/images/feature4.png"/>
-                <p class="center">数据真实</p>
-            </li>
-        </ul>
-    </div>
-</section>
+{#<section>#}
+{#    <div class="wp">#}
+{#        <ul class="feature">#}
+{#            <li class="feature1">#}
+{#                <img class="pic" src="/static/images/feature1.png"/>#}
+{#                <p class="center">专业权威</p>#}
+{#            </li>#}
+{#            <li class="feature2">#}
+{#                <img class="pic" src="/static/images/feature2.png"/>#}
+{#                <p class="center">课程最新</p>#}
+{#            </li>#}
+{#            <li class="feature3">#}
+{#                <img class="pic" src="/static/images/feature3.png"/>#}
+{#                <p class="center">名师授课</p>#}
+{#            </li>#}
+{#            <li class="feature4">#}
+{#                <img class="pic" src="/static/images/feature4.png"/>#}
+{#                <p class="center">数据真实</p>#}
+{#            </li>#}
+{#        </ul>#}
+{#    </div>#}
+{#</section>#}
 <!--feature end-->
 <!--module1 start-->
+{% include 'common/banner.html' %}
 <section>
     <div class="module">
         <div class="wp">
