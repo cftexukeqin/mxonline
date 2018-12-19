@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/animate.css">
     <link rel="stylesheet" type="text/css" href="/static/css/style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
-    <link rel="stylesheet" type="text/css" href="/static/teachser-style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/teachser-style.css">
     <link rel="stylesheet" type="text/css" href="/static/css/new-banner.css">
     <link rel="stylesheet" type="text/css" href="/static/css/ux-micro-icon.css">
 
@@ -31,10 +31,10 @@
                 <div class="wp">
                     <div class="fl"><p><b>优课,你的IT启蒙导师!</b></p></div>
                     <!--登录后跳转-->
-                    {% if user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                         <div class="personal">
                         <dl class="user fr">
-                            <dd>{{ user.username }}<img class="down fr" src="/static/images/top_down.png"/></dd>
+                            <dd>{{ request.user.username }}<img class="down fr" src="/static/images/top_down.png"/></dd>
                             <dt><img width="20" height="20" src="/static/media/image/2016/12/default_big_14.png"/></dt>
                         </dl>
                         <div class="userdetail">
@@ -43,7 +43,7 @@
                                 </dt>
                                 <dd>
                                     <h2>Python全栈开发工程师</h2>
-                                    <p>{{ user.username }}</p>
+                                    <p>{{ request.user.username }}</p>
                                 </dd>
                             </dl>
                             <div class="btn">
@@ -58,7 +58,6 @@
                     {% endif %}
                 </div>
             </div>
-
             {% include 'common/middle.html' %}
 {#            {% include 'common/nav.html' %}#}
 

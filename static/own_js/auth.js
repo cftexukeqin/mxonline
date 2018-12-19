@@ -35,33 +35,34 @@ Auth.prototype.listenLogindBtn = function(){
     })
 };
 
-// Auth.prototype.listenRegistBtn = function(){
-//     var regBtn = $('#regist-btn');
-//     var emailInput = $("input[name='email']");
-//     var passwordInput = $("input[name='password']");
-//     regBtn.click(function (event) {
-//         event.preventDefault();
-//         var email = emailInput.val();
-//         var password = passwordInput.val();
-//         xfzajax.post({
-//             'url':'/user/regist/',
-//             'data':{
-//                 'email':email,
-//                 'password':password
-//             },
-//             'success':function (result) {
-//                 if(result['code'] === 200){
-//                     messageBox.showSuccess('注册成功,请前往注册邮箱激活!')
-//                 }else {
-//                     messageBox.showInfo(result['message'])
-//                 }
-//                 },
-//              'fail':function (err) {
-//                  messageBox.showError(err)
-//              }
-//         })
-//     })
-// };
+// 注册代码
+Auth.prototype.listenRegistBtn = function(){
+    var regBtn = $('#regist-btn');
+    var emailInput = $("input[name='email']");
+    var passwordInput = $("input[name='password']");
+    regBtn.click(function (event) {
+        event.preventDefault();
+        var email = emailInput.val();
+        var password = passwordInput.val();
+        xfzajax.post({
+            'url':'/user/regist/',
+            'data':{
+                'email':email,
+                'password':password
+            },
+            'success':function (result) {
+                if(result['code'] === 200){
+                    messageBox.showSuccess('注册成功,请前往注册邮箱激活!')
+                }else {
+                    messageBox.showInfo(result['message'])
+                }
+                },
+             'fail':function (err) {
+                 messageBox.showError(err)
+             }
+        })
+    })
+};
 // 初始化验证码
 // Auth.prototype.listenGeetestLogin = function(){
 //     var usernameInput = $('#username1');

@@ -35,5 +35,7 @@ urlpatterns = [
     path('update/email/', views.UpdateEmailView.as_view(), name='update_email'),
     # 个人信息 -保存
     path('update/info/', views.SaveUserInfoView.as_view(), name='save_info'),
+    # 注册成功提示
+    path('test/',views.test,name='test')
 
 ]

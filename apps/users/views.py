@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate,login,logout
 from django.views.generic import View
 from django.http import HttpResponse
+from django.db.models import Q
 from django.contrib.auth.hashers import make_password
 from django.views.decorators.http import require_POST
 
@@ -138,20 +139,21 @@ class RegistView(View):
         regist_form = RegistForm(request.POST)
         if regist_form.is_valid():
             username = regist_form.cleaned_data.get('email')
-            if UserProfile.objects.filter(email=username):
+            if UserProfile.objects.filter(Q(email=username)|Q(username=username)):
                 return render(request,'auth/register.html',{'regist_form':regist_form,'msg':'用户已经存在'})
-            password = regist_form.cleaned_data.get('password')
-            # captcha = regist_form.cleaned_data.get('captcha')
-            # print("captcha:",captcha)
-            user = UserProfile()
-            user.username = username
-            user.email = username
-            user.is_active = False
-            user.set_password(password)
-            user.save()
-            # 此处是以邮箱注册,用户名就是邮箱
-            send_regist_email(username,code_num=16,send_type='register')
-            return render(request, 'auth/regist_to_active.html', {'msg': '注册成功,请前往邮箱激活!'})
+            else:
+                password = regist_form.cleaned_data.get('password')
+                # captcha = regist_form.cleaned_data.get('captcha')
+                # print("captcha:",captcha)
+                user = UserProfile()
+                user.username = username
+                user.email = username
+                user.is_active = False
+                user.set_password(password)
+                user.save()
+                # 此处是以邮箱注册,用户名就是邮箱
+                send_regist_email(username,code_num=16,send_type='register')
+                return render(request, 'auth/regist_to_active.html',)
         else:
             print(regist_form.errors)
             return render(request,'auth/register.html',{'regist_form':regist_form,'msg':regist_form.errors})
@@ -353,3 +355,6 @@ class SaveUserInfoView(View,LoginRequiredMixin):
 def my_logout(request):
     logout(request)
     return render(request, 'auth/index.html')
+
+def test(request):
+    return render(request,'auth/regist_to_active.html')
