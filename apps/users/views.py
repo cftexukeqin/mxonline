@@ -151,7 +151,7 @@ class RegistView(View):
             user.save()
             # 此处是以邮箱注册,用户名就是邮箱
             send_regist_email(username,code_num=16,send_type='register')
-            return render(request, 'auth/login.html', {'msg': '注册成功,请前往邮箱激活!'})
+            return render(request, 'auth/regist_to_active.html', {'msg': '注册成功,请前往邮箱激活!'})
         else:
             print(regist_form.errors)
             return render(request,'auth/register.html',{'regist_form':regist_form,'msg':regist_form.errors})
