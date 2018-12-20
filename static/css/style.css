@@ -1898,7 +1898,7 @@ textarea:focus {
 }
 
 .group_list .box img {
-    height: 190px;
+    height: 150px;
 }
 
 .group_list .des {
@@ -2670,7 +2670,7 @@ footer .footer .line {
 }
 
 .list .right {
-    width: 280px;
+    width: 240px;
     float: right;
     margin-bottom: 20px;
     overflow: hidden;
@@ -3540,7 +3540,7 @@ footer .footer .line {
 
 .butler_detail_list .brief {
     position: relative;
-    width: 860px;
+    width: 840px;
     height: 188px;
     padding: 20px;
     border: 1px solid #eaeaea;
@@ -5331,7 +5331,7 @@ footer .footer .line {
 }
 
 .companycenter .group_list .box {
-    height: 300px;
+    height: 260px;
     position: relative;
     margin: 30px 10px;
     width: 214px !important;

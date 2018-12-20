@@ -198,7 +198,9 @@ class TeacherView(View):
 # 教师详情
 def teacher_detail(request,teacher_id):
     teacher = Teacher.objects.get(id=teacher_id)
+    teachers = Teacher.objects.order_by('-fav_nums')[:3]
     context = {
-        'teacher':teacher
+        'teacher':teacher,
+        "teachers":teachers
     }
     return render(request,'teacher/teacher-detail.html',context=context)

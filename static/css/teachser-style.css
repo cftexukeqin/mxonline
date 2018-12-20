@@ -22,8 +22,8 @@
 #four_flash .flashBg ul.mobile li img{width:100px;height:100px;display:block; margin:0 auto; border-radius:82px;}
 #four_flash .flashBg ul.mobile li dd{font-size:20px;width:250px;line-height:60px;text-align:center;border-bottom:1px solid #6C6E85;}
 #four_flash .flashBg ul.mobile li p{font-size:16px; text-align:center;width:250px; line-height:24px;margin-top:10px;}
-#four_flash .but_left{width:50px;height:100px;position:absolute; top:136px; left:0px;}
-#four_flash .but_right{width:50px;height:100px; position:absolute; top:136px; right:0px;}
+#four_flash .but_left{width:50px;height:100px;position:absolute; top:115px; left:0;}
+#four_flash .but_right{width:50px;height:100px; position:absolute; top:115px; right:0;}
 #four_flash .but_left:hover{background:url(/static/images/qianxleft1.png) no-repeat;}
 #four_flash .but_right:hover{background:url(/static/images/qianxr1.png) no-repeat;}
 
