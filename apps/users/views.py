@@ -27,7 +27,7 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
 
-@method_decorator(cache_page(60*5),name='get')
+# @method_decorator(cache_page(60*5),name='get')
 class IndexView(View):
     def get(self,request):
         # 轮播图
